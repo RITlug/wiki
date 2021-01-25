@@ -1,20 +1,16 @@
-[inventory](https://unicef.github.io/inventory/)
+RIT Linux Wiki
 ================================================
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0)
-[![Build Status](https://circleci.com/gh/unicef/inventory/tree/main.svg?style=shield)](https://app.circleci.com/pipelines/github/unicef/inventory?branch=main)
+<!-- [![Build Status](https://circleci.com/gh/unicef/inventory/tree/main.svg?style=shield)](https://app.circleci.com/pipelines/github/unicef/inventory?branch=main) -->
 
-Innovation Inventory.
-A UNICEF Global Innovation knowledge base of best practices and resources for working and leading Open.
+A wiki supporting RIT students who use Linux.
 
 
 ## About
 
-This repository is a collection of various information about Open Source best practices.
-It was originally created to support [UNICEF Innovation Fund](https://unicefinnovationfund.org/) teams in building Open Source projects and communities.
-The information here can be applied generally to Open Source projects.
-
-This repository also includes an inventory of Innovation Fund companies and their Open Source intellectual property.
+This repository is a collection of various information on how to access university resources at RIT using Linux Operating Systems and Open Source Software.
+This wiki has been modified from the [UNICEF Inventory](https://github.com/unicef/inventory) project.
 
 
 ## Legal
