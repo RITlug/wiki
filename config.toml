@@ -1,6 +1,6 @@
 ################################# Default configuration ###################
-baseURL = "https://unicef.github.io/inventory/"
-title = "UNICEF O.S. Inventory"
+baseURL = "https://moralcode.github.io/rit-linux-wiki/"
+title = "RIT Linux Wiki"
 theme = "dot"
 enableEmoji = true
 enableGitInfo = true
@@ -23,63 +23,9 @@ hasChildren = true
 
     [[menu.main]]
     parent = "pages"
-    name = "Communities"
-    url = "communities"
+    name = "Networking"
+    url = "network"
     weight = 10
-
-    [[menu.main]]
-    parent = "pages"
-    name = "Design"
-    url = "design"
-    weight = 20
-
-    [[menu.main]]
-    parent = "pages"
-    name = "Developer Tools & Automation"
-    url = "dev-tools"
-    weight = 30
-
-    [[menu.main]]
-    parent = "pages"
-    name = "Documentation"
-    url = "documentation"
-    weight = 40
-
-    [[menu.main]]
-    parent = "pages"
-    name = "Free & Open Source Software"
-    url = "foss"
-    weight = 50
-
-    [[menu.main]]
-    parent = "pages"
-    name = "Meta"
-    url = "meta"
-    weight = 55
-
-    [[menu.main]]
-    parent = "pages"
-    name = "Missions"
-    url = "missions"
-    weight = 60
-
-    [[menu.main]]
-    parent = "pages"
-    name = "Open Hardware"
-    url = "hardware"
-    weight = 70
-
-    [[menu.main]]
-    parent = "pages"
-    name = "Project Management"
-    url = "project-management"
-    weight = 80
-
-    [[menu.main]]
-    parent = "pages"
-    name = "Reproducibility"
-    url = "reproducibility"
-    weight = 90
 
 
 ############################# Default parameters ##########################
@@ -124,7 +70,7 @@ copyright = "Creative Commons BY-SA 4.0"
 
 # banner
 [Languages.en.params.banner]
-title = "UNICEF Open Source Inventory"
-subtitle = "A UNICEF Global Innovation knowledge base of best practices and resources for working and leading Open."
+title = "RIT Linux Wiki"
+subtitle = "A Wiki to help RIT students access university Resources using Linux."
 bg_image = "img/banner.jpg"
 placeholder = "Have a question? Search the site here."
