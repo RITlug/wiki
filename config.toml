@@ -23,6 +23,12 @@ hasChildren = true
 
     [[menu.main]]
     parent = "pages"
+    name = "Majors"
+    url = "majors"
+    weight = 10
+
+    [[menu.main]]
+    parent = "pages"
     name = "Networking"
     url = "network"
     weight = 10
