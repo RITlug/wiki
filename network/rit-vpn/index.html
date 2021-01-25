@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
   <meta charset="utf-8">
-  <title>Tags</title>
+  <title>Connecting to the RIT VPN under Linux</title>
 
   <meta name="generator" content="Hugo 0.80.0" />
 
@@ -129,6 +129,52 @@
             
               
             
+               
+              
+
+
+
+
+
+
+
+
+<li data-nav-id="https://moralcode.github.io/rit-linux-wiki/network/" title="Network Resources" class="sidelist
+  ">
+  <a href="https://moralcode.github.io/rit-linux-wiki/network/">
+    Network Resources
+  </a>
+  
+  
+    <ul>
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://moralcode.github.io/rit-linux-wiki/network/rit-vpn/" title="Connecting to the RIT VPN under Linux" class="sidelist
+  active">
+  <a href="https://moralcode.github.io/rit-linux-wiki/network/rit-vpn/">
+    Connecting to the RIT VPN under Linux
+  </a>
+  
+  
+</li>
+
+
+        
+      
+    </ul>
+  
+</li>
+
+
               
             
           </ul>
@@ -136,33 +182,33 @@
       </div>
       <div class="col-lg-9">
         <div class="p-lg-5 p-4 bg-white">
-          <h2 class="mb-5">Tags</h2>
+          <h2 class="mb-5">Connecting to the RIT VPN under Linux</h2>
           
-          <div class="bg-light p-4">
-            <ul class="page-list">
-              
-
-
-
-
-
-
-
-
-<li data-nav-id="https://moralcode.github.io/rit-linux-wiki/tags/" title="Tags" class="sidelist
-  active">
-  <a href="https://moralcode.github.io/rit-linux-wiki/tags/">
-    Tags
-  </a>
-  
-  
-</li>
-
-
-            </ul>
-          </div>
+          <div class="content"><h2 id="using-network-manager">Using Network-manager</h2>
+<p>These instructions are for network-manager specifically, but should be adaptable for any system</p>
+<h1 id="step-1"><strong>Step 1:</strong></h1>
+<p>Navigate to <a href="https://vpn.rit.edu/">https://vpn.rit.edu</a> from a linux device and sign in</p>
+<p><img src="/static/img/rit-vpn/download-login.png" alt=""></p>
+<h1 id="step-2"><strong>​Step 2:</strong></h1>
+<p>Click the button to download the anyconnect client for linux. You should get a roughly 5-6 Mebibyte .sh script file.</p>
+<p><img src="/static/img/rit-vpn/download.png" alt=""></p>
+<h1 id="step-3-extract"><strong>​Step 3: Extract</strong></h1>
+<p>This installer script contains an encoded tarball which makes up the bulk of the file. To extract it, use <a href="https://gist.github.com/MoralCode/0e6d3515cc6546ada033a504d95c79f7">this script</a>.</p>
+<h1 id="step-4-find-the-certificate"><strong>​Step 4: ​Find the certificate</strong></h1>
+<p>Locate and save the file named <code>VeriSignClass3PublicPrimaryCertificationAuthority-G5.pem</code>. You will need this to connect.</p>
+<p><strong>​Step 5: Set up connection</strong></p>
+<p>Install the package <code>network-manager-openconnect</code> from your system&rsquo;s package manager (it should be in at least the ubuntu repos). This adds openconnect (and anyconnect) options to network manager (if your system uses it).</p>
+<p>Then go into network manager and create a new vpn profile.</p>
+<p><img src="/static/img/rit-vpn/settings.png" alt=""></p>
+<p>Change the VPN protocol to &ldquo;Cisco AnyConnect&rdquo; and provide the gateway URL (vpn.rit.edu) and certificate file from earlier, you shouldnt need to do anything else.</p>
+<h2 id="step-6-connect">Step 6: Connect</h2>
+<p>In network manager, connect to the VPN. You should get a window like
+this:</p>
+<p><img src="/static/img/rit-vpn/connecting.png" alt=""></p>
+<p>To continue connecting, click on the button to the right of the &ldquo;VPN Host&rdquo; Dropdown. It may ask for your RIT credentials before connecting you to the VPN.</p>
+</div>
           
-          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 01 Jan 0001</p>
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 25 Jan 2021</p>
           <nav class="pagination mt-3">
             
             
@@ -240,18 +286,6 @@
             
             
             
-
-            
-            
-            
-
-            
-            
-            
-            
-            
-            
-            
             
 
             
@@ -267,8 +301,24 @@
             
             
             
+
+            
+            
             
 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://moralcode.github.io/rit-linux-wiki/network/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Network Resources</span></a>
             
             
             <a class="nav nav-next" href="https://moralcode.github.io/rit-linux-wiki/faq/"> <span class="d-none d-md-block">Frequently Asked Questions</span><i class="ti-arrow-right ml-2"></i></a>

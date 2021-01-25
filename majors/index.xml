@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Majors on RIT Linux Wiki</title>
+    <link>https://moralcode.github.io/rit-linux-wiki/majors/</link>
+    <description>Recent content in Majors on RIT Linux Wiki</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Creative Commons BY-SA 4.0</copyright><atom:link href="https://moralcode.github.io/rit-linux-wiki/majors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Game Design Majors</title>
+      <link>https://moralcode.github.io/rit-linux-wiki/majors/gdd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://moralcode.github.io/rit-linux-wiki/majors/gdd/</guid>
+      <description>There&amp;rsquo;s a lot more you can do with linux than you might imagine.
+ Unreal Engine 4 can be used on Linux and will export Linux-native builds of your games (Unity and CryEngine can also export this way) Godot is a completely FOSS engine which is sorta the Linux gamedev engine right now. Sites like GOG and Steam support Linux very well, there&amp;rsquo;s really no reason not to Linux users are often willing to help contribute back and debug software  </description>
+    </item>
+    
+  </channel>
+</rss>

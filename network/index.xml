@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network Resources on RIT Linux Wiki</title>
+    <link>https://moralcode.github.io/rit-linux-wiki/network/</link>
+    <description>Recent content in Network Resources on RIT Linux Wiki</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Creative Commons BY-SA 4.0</copyright><atom:link href="https://moralcode.github.io/rit-linux-wiki/network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Connecting to the RIT VPN under Linux</title>
+      <link>https://moralcode.github.io/rit-linux-wiki/network/rit-vpn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://moralcode.github.io/rit-linux-wiki/network/rit-vpn/</guid>
+      <description>Using Network-manager These instructions are for network-manager specifically, but should be adaptable for any system
+Step 1: Navigate to https://vpn.rit.edu from a linux device and sign in
+​Step 2: Click the button to download the anyconnect client for linux. You should get a roughly 5-6 Mebibyte .sh script file.
+​Step 3: Extract This installer script contains an encoded tarball which makes up the bulk of the file. To extract it, use this script.</description>
+    </item>
+    
+  </channel>
+</rss>
