@@ -188,10 +188,10 @@
 <p>These instructions are for network-manager specifically, but should be adaptable for any system</p>
 <h1 id="step-1"><strong>Step 1:</strong></h1>
 <p>Navigate to <a href="https://vpn.rit.edu/">https://vpn.rit.edu</a> from a linux device and sign in</p>
-<p><img src="/static/img/rit-vpn/download-login.png" alt=""></p>
+<p><img src="/rit-linux-wiki/img/rit-vpn/download-login.png" alt=""></p>
 <h1 id="step-2"><strong>​Step 2:</strong></h1>
 <p>Click the button to download the anyconnect client for linux. You should get a roughly 5-6 Mebibyte .sh script file.</p>
-<p><img src="/static/img/rit-vpn/download.png" alt=""></p>
+<p><img src="/rit-linux-wiki/img/rit-vpn/download.png" alt=""></p>
 <h1 id="step-3-extract"><strong>​Step 3: Extract</strong></h1>
 <p>This installer script contains an encoded tarball which makes up the bulk of the file. To extract it, use <a href="https://gist.github.com/MoralCode/0e6d3515cc6546ada033a504d95c79f7">this script</a>.</p>
 <h1 id="step-4-find-the-certificate"><strong>​Step 4: ​Find the certificate</strong></h1>
@@ -199,12 +199,12 @@
 <p><strong>​Step 5: Set up connection</strong></p>
 <p>Install the package <code>network-manager-openconnect</code> from your system&rsquo;s package manager (it should be in at least the ubuntu repos). This adds openconnect (and anyconnect) options to network manager (if your system uses it).</p>
 <p>Then go into network manager and create a new vpn profile.</p>
-<p><img src="/static/img/rit-vpn/settings.png" alt=""></p>
+<p><img src="/rit-linux-wiki/img/rit-vpn/settings.png" alt=""></p>
 <p>Change the VPN protocol to &ldquo;Cisco AnyConnect&rdquo; and provide the gateway URL (vpn.rit.edu) and certificate file from earlier, you shouldnt need to do anything else.</p>
 <h2 id="step-6-connect">Step 6: Connect</h2>
 <p>In network manager, connect to the VPN. You should get a window like
 this:</p>
-<p><img src="/static/img/rit-vpn/connecting.png" alt=""></p>
+<p><img src="/rit-linux-wiki/img/rit-vpn/connecting.png" alt=""></p>
 <p>To continue connecting, click on the button to the right of the &ldquo;VPN Host&rdquo; Dropdown. It may ask for your RIT credentials before connecting you to the VPN.</p>
 </div>
           
