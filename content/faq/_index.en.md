@@ -27,5 +27,5 @@ Provided you meet the following terms:
 {{< faq "Is this site open source?" >}}
 Yes.
 You can find it on GitHub.
-[github.com/unicef/inventory](https://github.com/unicef/inventory)
+[github.com/MoralCode/rit-linux-wiki](https://github.com/MoralCode/rit-linux-wiki)
 {{</ faq >}}

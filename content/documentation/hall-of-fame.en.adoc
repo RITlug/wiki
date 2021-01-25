@@ -60,7 +60,7 @@ These examples are aggregated by specific toolchains commonly used for Open Sour
 
 These examples are good examples of documentation written using the https://gohugo.io/[Hugo] documentation tool-chain.
 
-* https://github.com/unicef/inventory[*UNICEF Open Source Inventory*]:
+* https://github.com/MoralCode/rit-linux-wiki[*UNICEF Open Source Inventory*]:
   This website you are reading right now?
   The content is written in a mix of AsciiDoc and Markdown, and published with Hugo.
 

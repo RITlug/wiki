@@ -31,7 +31,7 @@ jobs:
       - run: apk add rsync
 
       # clone repo (required to access `.circleci/deploy.sh`)
-      - run: git clone --depth=1 https://github.com/unicef/inventory.git
+      - run: git clone --depth=1 https://github.com/MoralCode/rit-linux-wiki.git
 
       # checkout generated html
       - attach_workspace:
