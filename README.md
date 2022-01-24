@@ -1,5 +1,7 @@
-RIT Linux Wiki
-================================================
+[RIT Linux Wiki](https://moralcode.github.io/rit-linux-wiki)
+============================================================
+
+### [_moralcode.github.io/rit-linux-wiki_](https://moralcode.github.io/rit-linux-wiki)
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0)
 [![Build Status](https://circleci.com/gh/MoralCode/rit-linux-wiki/tree/main.svg?style=shield)](https://app.circleci.com/pipelines/github/MoralCode/rit-linux-wiki?branch=main)
