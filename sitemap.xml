@@ -1,43 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://moralcode.github.io/rit-linux-wiki/network/rit-vpn/</loc>
-    <lastmod>2021-01-25T08:58:33-08:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-01-18T20:48:29+01:00</lastmod>
+  </url><url>
     <loc>https://moralcode.github.io/rit-linux-wiki/majors/gdd/</loc>
     <lastmod>2021-01-25T08:15:19-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://moralcode.github.io/rit-linux-wiki/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://moralcode.github.io/rit-linux-wiki/faq/</loc>
     <lastmod>2021-01-25T07:41:30-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://moralcode.github.io/rit-linux-wiki/majors/</loc>
     <lastmod>2021-01-25T08:15:19-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://moralcode.github.io/rit-linux-wiki/network/</loc>
     <lastmod>2021-01-25T07:46:52-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://moralcode.github.io/rit-linux-wiki/</loc>
-    <lastmod>2021-01-25T08:58:33-08:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-01-18T20:48:29+01:00</lastmod>
+  </url><url>
     <loc>https://moralcode.github.io/rit-linux-wiki/tags/</loc>
   </url>
-  
 </urlset>

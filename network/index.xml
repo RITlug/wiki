@@ -15,8 +15,8 @@
       <guid>https://moralcode.github.io/rit-linux-wiki/network/rit-vpn/</guid>
       <description>Using Network-manager These instructions are for network-manager specifically, but should be adaptable for any system
 Step 1: Navigate to https://vpn.rit.edu from a linux device and sign in
-​Step 2: Click the button to download the anyconnect client for linux. You should get a roughly 5-6 Mebibyte .sh script file.
-​Step 3: Extract This installer script contains an encoded tarball which makes up the bulk of the file. To extract it, use this script.</description>
+Step 2: Click the button to download the anyconnect client for linux. You should get a roughly 5-6 megabyte .sh script file.
+Step 3: Extract This installer script contains an encoded tarball which makes up the bulk of the file. To extract it, use this script.</description>
     </item>
     
   </channel>
