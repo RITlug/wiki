@@ -15,6 +15,10 @@ This repository is a collection of various information on how to access universi
 This wiki has been modified from the [UNICEF Inventory](https://github.com/MoralCode/rit-linux-wiki) project.
 
 
+## Development usage
+
+use `hugo serve` to serve the project locally for development.
+
 ## Legal
 
 Licensed under [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0).
