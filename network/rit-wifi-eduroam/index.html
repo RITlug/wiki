@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
   <meta charset="utf-8">
-  <title>Network Resources</title>
+  <title>Connecting to the RIT eduroam network under Linux</title>
 
   <meta name="generator" content="Hugo 0.92.1" />
 
@@ -140,7 +140,7 @@
 
 
 <li data-nav-id="https://moralcode.github.io/rit-linux-wiki/network/" title="Network Resources" class="sidelist
-  active">
+  ">
   <a href="https://moralcode.github.io/rit-linux-wiki/network/">
     Network Resources
   </a>
@@ -159,7 +159,7 @@
 
 
 <li data-nav-id="https://moralcode.github.io/rit-linux-wiki/network/rit-wifi-eduroam/" title="Connecting to the RIT eduroam network under Linux" class="sidelist
-  ">
+  active">
   <a href="https://moralcode.github.io/rit-linux-wiki/network/rit-wifi-eduroam/">
     Connecting to the RIT eduroam network under Linux
   </a>
@@ -204,81 +204,33 @@
       </div>
       <div class="col-lg-9">
         <div class="p-lg-5 p-4 bg-white">
-          <h2 class="mb-5">Network Resources</h2>
+          <h2 class="mb-5">Connecting to the RIT eduroam network under Linux</h2>
           
-          <div class="bg-light p-4">
-            <ul class="page-list">
-              
+          <div class="content"><h2 id="getting-the-config">Getting the config</h2>
+<ol>
+<li>Create a temporary directory somewhere and cd into it from a terminal</li>
+<li>download the linux installer from <a href="https://rit.edu/wifi">https://rit.edu/wifi</a>. Dont open it since it might break the CRLF line endings and the binary file thats encoded at the bottom of the file if you save it after opening on a linux machine.</li>
+<li>run <code>sed -e '0,/^#ARCHIVE#$/d' &quot;PATH_TO_INSTALLER.run&quot; | gzip -d | tar -x</code> inside that folder to extract the contents</li>
+<li>create a new python file in that folder. name it whatever you want. paste in the following contents:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> client <span style="color:#f92672">import</span> PaladinLinuxClient
+
+deciphered <span style="color:#f92672">=</span> PaladinLinuxClient<span style="color:#f92672">.</span>decipher(PaladinLinuxClient<span style="color:#f92672">.</span>CONFIG_FILE)
+strip_namespace<span style="color:#f92672">=</span>PaladinLinuxClient<span style="color:#f92672">.</span>strip_namespace(deciphered)
 
 
-
-
-
-
-
-
-<li data-nav-id="https://moralcode.github.io/rit-linux-wiki/network/" title="Network Resources" class="sidelist
-  active">
-  <a href="https://moralcode.github.io/rit-linux-wiki/network/">
-    Network Resources
-  </a>
-  
-  
-    <ul>
-      
-        
+<span style="color:#66d9ef">with</span> open(PaladinLinuxClient<span style="color:#f92672">.</span>CONFIG_FILE <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.xml&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>) <span style="color:#66d9ef">as</span> conf:
+	conf<span style="color:#f92672">.</span>write(strip_namespace)
+</code></pre></div><ol start="5">
+<li>run this script to use the clients own decryption mechanism to decrypt the config file to a plain XML file.</li>
+<li>this file seems to contain all the config that you should need in order to manually configure the network. Sections of it from which you should grab values will be referenced in the steps below so as to avoid copying the values themselves and compromising the security of RIT&rsquo;s network.</li>
+</ol>
+<h2 id="configuring-the-network">Configuring the network</h2>
+<p>TBD - the eduroam network has not yet been enabled</p>
+<p>this might be vaguely helpful in the meantime: <a href="http://kb.mit.edu/confluence/pages/viewpage.action?pageId=152599592">http://kb.mit.edu/confluence/pages/viewpage.action?pageId=152599592</a></p>
+</div>
           
-
-
-
-
-
-
-
-
-<li data-nav-id="https://moralcode.github.io/rit-linux-wiki/network/rit-wifi-eduroam/" title="Connecting to the RIT eduroam network under Linux" class="sidelist
-  ">
-  <a href="https://moralcode.github.io/rit-linux-wiki/network/rit-wifi-eduroam/">
-    Connecting to the RIT eduroam network under Linux
-  </a>
-  
-  
-</li>
-
-
-        
-      
-        
-          
-
-
-
-
-
-
-
-
-<li data-nav-id="https://moralcode.github.io/rit-linux-wiki/network/rit-vpn/" title="Connecting to the RIT VPN under Linux" class="sidelist
-  ">
-  <a href="https://moralcode.github.io/rit-linux-wiki/network/rit-vpn/">
-    Connecting to the RIT VPN under Linux
-  </a>
-  
-  
-</li>
-
-
-        
-      
-    </ul>
-  
-</li>
-
-
-            </ul>
-          </div>
-          
-          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 25 Jan 2021</p>
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 06 Feb 2022</p>
           <nav class="pagination mt-3">
             
             
@@ -371,6 +323,23 @@
             
             
             
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             
 
@@ -388,28 +357,12 @@
             
             
             
-            
 
             
+            <a class="nav nav-prev" href="https://moralcode.github.io/rit-linux-wiki/network/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Network Resources</span></a>
             
             
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            
-            <a class="nav nav-prev" href="https://moralcode.github.io/rit-linux-wiki/majors/gdd/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Game Design Majors</span></a>
-            
-            
-            <a class="nav nav-next" href="https://moralcode.github.io/rit-linux-wiki/network/rit-wifi-eduroam/"> <span class="d-none d-md-block">Connecting to the RIT eduroam network under Linux</span><i class="ti-arrow-right ml-2"></i></a>
+            <a class="nav nav-next" href="https://moralcode.github.io/rit-linux-wiki/network/rit-vpn/"> <span class="d-none d-md-block">Connecting to the RIT VPN under Linux</span><i class="ti-arrow-right ml-2"></i></a>
             
           </nav>
         </div>

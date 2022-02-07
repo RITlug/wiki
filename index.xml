@@ -8,6 +8,15 @@
     <language>en-us</language>
     <copyright>Creative Commons BY-SA 4.0</copyright><atom:link href="https://moralcode.github.io/rit-linux-wiki/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Connecting to the RIT eduroam network under Linux</title>
+      <link>https://moralcode.github.io/rit-linux-wiki/network/rit-wifi-eduroam/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://moralcode.github.io/rit-linux-wiki/network/rit-wifi-eduroam/</guid>
+      <description>Getting the config  Create a temporary directory somewhere and cd into it from a terminal download the linux installer from https://rit.edu/wifi. Dont open it since it might break the CRLF line endings and the binary file thats encoded at the bottom of the file if you save it after opening on a linux machine. run sed -e &#39;0,/^#ARCHIVE#$/d&#39; &amp;quot;PATH_TO_INSTALLER.run&amp;quot; | gzip -d | tar -x inside that folder to extract the contents create a new python file in that folder.</description>
+    </item>
+    
+    <item>
       <title>Connecting to the RIT VPN under Linux</title>
       <link>https://moralcode.github.io/rit-linux-wiki/network/rit-vpn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
