@@ -17,7 +17,7 @@ Starting after 2022 commencement RIT is replacing the 'RIT' wifi network with a 
 
 4. Once you are logged in, you will be asked to create a certificate. Enter a name you would like to give this certificate in the 'User Description' input box, then, click the 'create' button. ![](/rit-linux-wiki/img/eduroam/create-user-cert.png)
 
-5. You will then be prompted to create a password to protect your private key which you will need when setting up eduroam on a new device. Using a password manager is one easy way to generate strong, passwords and sync them across devices to make this process faster and more secure. The password you choose must be at least six (but no more than 16)characters long and contain a letter, number, and symbol. ![](/rit-linux-wiki/img/eduroam/password.png)
+5. You will then be prompted to create a password to protect your private key. This will be needed to set up eduroam on a new device. If you are unsure, you can use [1Password's public generator](https://1password.com/password-generator/?) which has a "memorable password" mode. The password you choose must be at least six (but no more than 16) characters long and contain a letter, number, and symbol. ![](/rit-linux-wiki/img/eduroam/password.png)
    
 6. Choose a format to download your certificate in. If you arent sure what you need, select P12 format and save the file somewhere you can get to it easily. ![](/rit-linux-wiki/img/eduroam/cert-download.png)
 
