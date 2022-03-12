@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Connecting to the RIT eduroam network under Linux</title>
 
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.94.1" />
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -206,31 +206,88 @@
         <div class="p-lg-5 p-4 bg-white">
           <h2 class="mb-5">Connecting to the RIT eduroam network under Linux</h2>
           
-          <div class="content"><h2 id="getting-the-config">Getting the config</h2>
+          <div class="content"><h2 id="an-overview">An Overview</h2>
+<p>Starting after 2022 commencement RIT is replacing the &lsquo;RIT&rsquo; wifi network with a larger, multi-university &rsquo;eduroam&rsquo; network. While this change may seem straightforward, RIT has decided to use EAP-TLS authentication rather than using MSCHAPV2. This is not a widespread practice, even among other universities who utilize the eduroam network. This can lead to some confusion, especially for anyone not running MacOS or Windows. This guide hopes to clear that up.</p>
+<h2 id="steps">Steps</h2>
 <ol>
-<li>Create a temporary directory somewhere and cd into it from a terminal</li>
-<li>download the linux installer from <a href="https://rit.edu/wifi">https://rit.edu/wifi</a>. Dont open it since it might break the CRLF line endings and the binary file thats encoded at the bottom of the file if you save it after opening on a linux machine.</li>
-<li>run <code>sed -e '0,/^#ARCHIVE#$/d' &quot;PATH_TO_INSTALLER.run&quot; | gzip -d | tar -x</code> inside that folder to extract the contents</li>
-<li>create a new python file in that folder. name it whatever you want. paste in the following contents:</li>
+<li>
+<p>Go to <a href="https://rit.edu/wifi"><em>https://rit.edu/wifi</em></a>, then select &rsquo;eduroam&rsquo;. <img src="/rit-linux-wiki/img/eduroam/wifi-page.png" alt=""></p>
+</li>
+<li>
+<p>In the &lsquo;select your device&rsquo; dropdown, select the &lsquo;user-defined&rsquo; option. <img src="/rit-linux-wiki/img/eduroam/select-os.png" alt=""></p>
+</li>
+<li>
+<p>Click &lsquo;sign in&rsquo; and enter your RIT credentials when prompted. <img src="/rit-linux-wiki/img/eduroam/start-user-cert.png" alt=""></p>
+</li>
+<li>
+<p>Once you are logged in, you will be asked to create a certificate. Enter a name you would like to give this certificate in the &lsquo;User Description&rsquo; input box, then, click the &lsquo;create&rsquo; button. <img src="/rit-linux-wiki/img/eduroam/create-user-cert.png" alt=""></p>
+</li>
+<li>
+<p>You will then be prompted to create a password to protect your private key which you will need when setting up eduroam on a new device. Using a password manager is one easy way to generate strong, passwords and sync them across devices to make this process faster and more secure. The password you choose must be at least six characters long and contain a letter, number, and symbol. <img src="/rit-linux-wiki/img/eduroam/password.png" alt=""></p>
+</li>
+<li>
+<p>Choose a format to download your certificate in. If you arent sure what you need, select P12 format and save the file somewhere you can get to it easily. <img src="/rit-linux-wiki/img/eduroam/cert-download.png" alt=""></p>
+</li>
+<li>
+<p>Click the link on this page to save the RIT CA Cert. You&rsquo;ll also want to have this handy for the next step <img src="/rit-linux-wiki/img/eduroam/root-ca.png" alt=""></p>
+</li>
+<li>
+<p>In a terminal, navigate to the directory you saved the certificates to. Copy the RIT certificate file to &lsquo;/usr/local/share/ca-certificates/&rsquo;. A command like <code>sudo cp *.cer /usr/local/share/ca-certificates/</code> will copy all files ending in .cer in your current folder to this location.</p>
+</li>
+<li>
+<p>You now have everything you need to connect to the network</p>
+</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> client <span style="color:#f92672">import</span> PaladinLinuxClient
-
-deciphered <span style="color:#f92672">=</span> PaladinLinuxClient<span style="color:#f92672">.</span>decipher(PaladinLinuxClient<span style="color:#f92672">.</span>CONFIG_FILE)
-strip_namespace<span style="color:#f92672">=</span>PaladinLinuxClient<span style="color:#f92672">.</span>strip_namespace(deciphered)
-
-
-<span style="color:#66d9ef">with</span> open(PaladinLinuxClient<span style="color:#f92672">.</span>CONFIG_FILE <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.xml&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>) <span style="color:#66d9ef">as</span> conf:
-	conf<span style="color:#f92672">.</span>write(strip_namespace)
-</code></pre></div><ol start="5">
-<li>run this script to use the clients own decryption mechanism to decrypt the config file to a plain XML file.</li>
-<li>this file seems to contain all the config that you should need in order to manually configure the network. Sections of it from which you should grab values will be referenced in the steps below so as to avoid copying the values themselves and compromising the security of RIT&rsquo;s network.</li>
+<h2 id="connecting-to-the-network">Connecting to the network</h2>
+<p>The process of connecting to the network may be different depending on the Linux distribution you use. In general, here is some information that may be asked during the connection process:</p>
+<p><strong>Identity:</strong> Your RIT email address. i.e. [username]@rit.edu</p>
+<p><strong>Authentication:</strong> TLS</p>
+<p><strong>Wifi Security:</strong> WPA and WPA2 Enterprise</p>
+<p><strong>CA certificate:</strong> The RIT .cer certificate you downloaded earlier</p>
+<p><strong>User Certificate/private key:</strong> Your .p12 file from earlier.</p>
+<p><strong>User Key Password:</strong> The password you set for this .p12 file earlier.</p>
+<h3 id="kali-linux">Kali Linux</h3>
+<ol>
+<li>
+<p>To connect click the wifi logo in the status bar, and then select &rsquo;eduroam&rsquo; <img src="/rit-linux-wiki/img/eduroam/open-networkmanager.png" alt=""></p>
+</li>
+<li>
+<p>Enter the configuration details in the window that appears. If the password field turns red it means the password is incorrect. <img src="/rit-linux-wiki/img/eduroam/configure-networkmanager.png" alt=""></p>
+</li>
 </ol>
-<h2 id="configuring-the-network">Configuring the network</h2>
-<p>TBD - the eduroam network has not yet been enabled</p>
-<p>this might be vaguely helpful in the meantime: <a href="http://kb.mit.edu/confluence/pages/viewpage.action?pageId=152599592">http://kb.mit.edu/confluence/pages/viewpage.action?pageId=152599592</a></p>
+<p>Once these instructions are complete, you will be able to connect to the
+new eduroam setup without needing to run any scripts!</p>
+<h2 id="alternate---rit-legacy">Alternate - RIT-Legacy</h2>
+<p>If you are unable to connect using certificates, you can follow the <a href="https://www.rit.edu/its/resnet/manual-registration">ITS RESNet manual registration instructions</a>.</p>
+<!-- 
+## Getting the config
+
+1. Create a temporary directory somewhere and cd into it from a terminal
+2. download the linux installer from https://rit.edu/wifi. Dont open it since it might break the CRLF line endings and the binary file thats encoded at the bottom of the file if you save it after opening on a linux machine.
+3. run `sed -e '0,/^#ARCHIVE#$/d' "PATH_TO_INSTALLER.run" | gzip -d | tar -x` inside that folder to extract the contents
+4. create a new python file in that folder. name it whatever you want. paste in the following contents:
+```python
+from client import PaladinLinuxClient
+
+deciphered = PaladinLinuxClient.decipher(PaladinLinuxClient.CONFIG_FILE)
+strip_namespace=PaladinLinuxClient.strip_namespace(deciphered)
+
+
+with open(PaladinLinuxClient.CONFIG_FILE + ".xml", "w") as conf:
+	conf.write(strip_namespace)
+```
+5. run this script to use the clients own decryption mechanism to decrypt the config file to a plain XML file.
+6. this file seems to contain all the config that you should need in order to manually configure the network. Sections of it from which you should grab values will be referenced in the steps below so as to avoid copying the values themselves and compromising the security of RIT's network.
+
+## Configuring the network
+
+TBD - the eduroam network has not yet been enabled
+
+this might be vaguely helpful in the meantime: http://kb.mit.edu/confluence/pages/viewpage.action?pageId=152599592
+ -->
 </div>
           
-          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 06 Feb 2022</p>
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 12 Mar 2022</p>
           <nav class="pagination mt-3">
             
             
@@ -281,6 +338,22 @@ strip_namespace<span style="color:#f92672">=</span>PaladinLinuxClient<span style
             
             
 
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
             
             
             

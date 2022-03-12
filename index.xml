@@ -8,12 +8,22 @@
     <language>en-us</language>
     <copyright>Creative Commons BY-SA 4.0</copyright><atom:link href="https://moralcode.github.io/rit-linux-wiki/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Computer Science Majors</title>
+      <link>https://moralcode.github.io/rit-linux-wiki/majors/cs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://moralcode.github.io/rit-linux-wiki/majors/cs/</guid>
+      <description>gmakemake As a computer science major at RIT, you have likely taken (or will take) mechanics of programming. In that class you might have seen or used a command line tool called gmakemake to create makefiles for C programming projects.
+If you are looking to use this tool outside of class, you&amp;rsquo;re in luck because the source code written by Sidney Marshall (swm) has been published at http://www.cs.rit.edu/~swm/makemake/ and a github fork has cropped up as well.</description>
+    </item>
+    
+    <item>
       <title>Connecting to the RIT eduroam network under Linux</title>
       <link>https://moralcode.github.io/rit-linux-wiki/network/rit-wifi-eduroam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://moralcode.github.io/rit-linux-wiki/network/rit-wifi-eduroam/</guid>
-      <description>Getting the config  Create a temporary directory somewhere and cd into it from a terminal download the linux installer from https://rit.edu/wifi. Dont open it since it might break the CRLF line endings and the binary file thats encoded at the bottom of the file if you save it after opening on a linux machine. run sed -e &#39;0,/^#ARCHIVE#$/d&#39; &amp;quot;PATH_TO_INSTALLER.run&amp;quot; | gzip -d | tar -x inside that folder to extract the contents create a new python file in that folder.</description>
+      <description>An Overview Starting after 2022 commencement RIT is replacing the &amp;lsquo;RIT&amp;rsquo; wifi network with a larger, multi-university &amp;rsquo;eduroam&amp;rsquo; network. While this change may seem straightforward, RIT has decided to use EAP-TLS authentication rather than using MSCHAPV2. This is not a widespread practice, even among other universities who utilize the eduroam network. This can lead to some confusion, especially for anyone not running MacOS or Windows. This guide hopes to clear that up.</description>
     </item>
     
     <item>
