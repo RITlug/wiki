@@ -10,8 +10,10 @@ A wiki supporting RIT students who use Linux.
 
 ## About
 
-This repository is a collection of various information on how to access university resources at RIT using Linux Operating Systems and Open Source Software.
-This wiki has been modified from the [UNICEF Inventory](https://github.com/UNICEF/inventory) project.
+This repository is a collection of various information on how to access
+university resources at RIT using Linux Operating Systems and Open Source
+Software. This wiki has been modified from the 
+[UNICEF Inventory](https://github.com/UNICEF/inventory) project.
 
 
 ## Development usage
