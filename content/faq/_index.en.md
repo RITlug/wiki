@@ -27,5 +27,5 @@ Provided you meet the following terms:
 {{< faq "Is this site open source?" >}}
 Yes.
 You can find it on GitHub.
-[github.com/MoralCode/rit-linux-wiki](https://github.com/MoralCode/rit-linux-wiki)
+[github.com/RITlug/wiki](https://github.com/RITlug/wiki)
 {{</ faq >}}

@@ -1,10 +1,9 @@
-[RIT Linux Wiki](https://moralcode.github.io/rit-linux-wiki)
+[RIT Linux Wiki](https://wiki.ritlug.com)
 ============================================================
 
-### [_moralcode.github.io/rit-linux-wiki_](https://moralcode.github.io/rit-linux-wiki)
+### [_wiki.ritlug.com_](https://wiki.ritlug.com)
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0)
-[![Build Status](https://circleci.com/gh/MoralCode/rit-linux-wiki/tree/main.svg?style=shield)](https://app.circleci.com/pipelines/github/MoralCode/rit-linux-wiki?branch=main)
 
 A wiki supporting RIT students who use Linux.
 
@@ -12,7 +11,7 @@ A wiki supporting RIT students who use Linux.
 ## About
 
 This repository is a collection of various information on how to access university resources at RIT using Linux Operating Systems and Open Source Software.
-This wiki has been modified from the [UNICEF Inventory](https://github.com/MoralCode/rit-linux-wiki) project.
+This wiki has been modified from the [UNICEF Inventory](https://github.com/UNICEF/inventory) project.
 
 
 ## Development usage
