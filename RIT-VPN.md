@@ -1,6 +1,7 @@
 ---
 title: Connecting to the RIT VPN under Linux
-weight: 10
+layout: default
+
 
 ---
 
@@ -12,14 +13,14 @@ Step 1:
 
 Navigate to [https://vpn.rit.edu](https://vpn.rit.edu/) from a linux device and sign in
 
-![](/rit-linux-wiki/img/rit-vpn/download-login.png)
+![](/assets/img/rit-vpn/download-login.png)
 
 Step 2:
 =======
 
 Click the button to download the anyconnect client for linux. You should get a roughly 5-6 megabyte `.sh` script file.
 
-![](/rit-linux-wiki/img/rit-vpn/download.png)
+![](/assets/img/rit-vpn/download.png)
 
 Step 3: Extract
 ===============
@@ -39,7 +40,7 @@ Install the package `network-manager-openconnect` from your system's package man
 
 Then go into network manager and create a new vpn profile.
 
-![](/rit-linux-wiki/img/rit-vpn/settings.png)
+![](/assets/img/rit-vpn/settings.png)
 
 Change the VPN protocol to "Cisco AnyConnect" and provide the gateway URL (vpn.rit.edu) and certificate file from earlier, you shouldnt need to do anything else.
 
@@ -48,6 +49,6 @@ Step 6: Connect
 
 In network manager, connect to the VPN. You should get a window like this:
 
-![](/rit-linux-wiki/img/rit-vpn/connecting.png)
+![](/assets/img/rit-vpn/connecting.png)
 
 To continue connecting, click on the button to the right of the "VPN Host" Dropdown. It may ask for your RIT credentials before connecting you to the VPN.

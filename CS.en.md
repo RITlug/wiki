@@ -1,7 +1,6 @@
 ---
 title: Computer Science Majors
-weight: 10
-
+layout: default
 ---
 
 

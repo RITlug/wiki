@@ -1,0 +1,13 @@
+remote_theme: pages-themes/hacker@v0.2.0
+
+title: RIT Linux Wiki
+description: A collection of information on how to access university resources at RIT using Linux Operating Systems. 
+
+# baseURL = ""
+# title = "RIT Linux Wiki"
+
+
+githubURL: https://github.com/RITlug/wiki
+
+plugins:
+- jekyll-remote-theme # add this line to the plugins list if you already have one

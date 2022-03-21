@@ -1,6 +1,7 @@
 ---
 title: Game Design Majors
-weight: 10
+layout: default
+
 
 ---
 
