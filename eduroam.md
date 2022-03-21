@@ -10,19 +10,19 @@ Starting after 2022 commencement RIT is replacing the 'RIT' wifi network with a 
 
 ## Steps
 
-1. Go to [*https://rit.edu/wifi*](https://rit.edu/wifi), then select 'eduroam'. ![](/rit-linux-wiki/img/eduroam/wifi-page.png)
+1. Go to [*https://rit.edu/wifi*](https://rit.edu/wifi), then select 'eduroam'. ![](/assets/img/eduroam/wifi-page.png)
 
-2. In the 'select your device' dropdown, select the 'user-defined' option. ![](/rit-linux-wiki/img/eduroam/select-os.png)
+2. In the 'select your device' dropdown, select the 'user-defined' option. ![](/assets/img/eduroam/select-os.png)
 
-3. Click 'sign in' and enter your RIT credentials when prompted. ![](/rit-linux-wiki/img/eduroam/start-user-cert.png)
+3. Click 'sign in' and enter your RIT credentials when prompted. ![](/assets/img/eduroam/start-user-cert.png)
 
-4. Once you are logged in, you will be asked to create a certificate. Enter a name you would like to give this certificate in the 'User Description' input box, then, click the 'create' button. ![](/rit-linux-wiki/img/eduroam/create-user-cert.png)
+4. Once you are logged in, you will be asked to create a certificate. Enter a name you would like to give this certificate in the 'User Description' input box, then, click the 'create' button. ![](/assets/img/eduroam/create-user-cert.png)
 
-5. You will then be prompted to create a password to protect your private key. This will be needed to set up eduroam on a new device. If you are unsure, you can use [1Password's public generator](https://1password.com/password-generator/?) which has a "memorable password" mode. The password you choose must be at least six (but no more than 16) characters long and contain a letter, number, and symbol. ![](/rit-linux-wiki/img/eduroam/password.png)
+5. You will then be prompted to create a password to protect your private key. This will be needed to set up eduroam on a new device. If you are unsure, you can use [1Password's public generator](https://1password.com/password-generator/?) which has a "memorable password" mode. The password you choose must be at least six (but no more than 16) characters long and contain a letter, number, and symbol. ![](/assets/img/eduroam/password.png)
    
-6. Choose a format to download your certificate in. If you arent sure what you need, select P12 format and save the file somewhere you can get to it easily. ![](/rit-linux-wiki/img/eduroam/cert-download.png)
+6. Choose a format to download your certificate in. If you arent sure what you need, select P12 format and save the file somewhere you can get to it easily. ![](/assets/img/eduroam/cert-download.png)
 
-7. Click the link on this page to save the RIT CA Cert. You'll also want to have this handy for the next step ![](/rit-linux-wiki/img/eduroam/root-ca.png)
+7. Click the link on this page to save the RIT CA Cert. You'll also want to have this handy for the next step ![](/assets/img/eduroam/root-ca.png)
 
 8. In a terminal, navigate to the directory you saved the certificates to. Copy the RIT certificate file to '/usr/local/share/ca-certificates/'. A command like `sudo cp *.cer /usr/local/share/ca-certificates/` will copy all files ending in .cer in your current folder to this location. 
 
@@ -48,9 +48,9 @@ The process of connecting to the network may be different depending on the Linux
 
 ### Kali Linux
 
-1. To connect click the wifi logo in the status bar, and then select 'eduroam' ![](/rit-linux-wiki/img/eduroam/open-networkmanager.png)
+1. To connect click the wifi logo in the status bar, and then select 'eduroam' ![](/assets/img/eduroam/open-networkmanager.png)
 
-2. Enter the configuration details in the window that appears. If the password field turns red it means the password is incorrect. ![](/rit-linux-wiki/img/eduroam/configure-networkmanager.png)
+2. Enter the configuration details in the window that appears. If the password field turns red it means the password is incorrect. ![](/assets/img/eduroam/configure-networkmanager.png)
 
 Once these instructions are complete, you will be able to connect to the
 new eduroam setup without needing to run any scripts!
