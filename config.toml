@@ -1,5 +1,5 @@
 ################################# Default configuration ###################
-baseURL = "https://moralcode.github.io/rit-linux-wiki/"
+baseURL = ""
 title = "RIT Linux Wiki"
 theme = "dot"
 enableEmoji = true
