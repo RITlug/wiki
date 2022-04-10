@@ -61,6 +61,8 @@ new eduroam setup without needing to run any scripts!
 
 Not all systems are built for GUIs, or have NetworkManager installed. This method, while more involved, should work properly for these types of systems.
 
+If you do not have a `.pem` file from RIT before starting this section, go back to the beginning of this page, and create a new certificate, downloading the `PEM` option instead.
+
 1. Open the downloaded `.pem` file in the text editor of your choice. You will notice that this contains two separate blocks, an encrypted private key, and a certificate. These are both crucial, but they cannot be used in their current state for multiple reasons. To make these work properly with `wpa_supplicant`, copy each block, including the `BEGIN` and `END` lines to their own separate files. I called these files `personalCert.pem` and `personalKey.pem`.
 
 2. Once you have these two files, exit your text editor and open the folder where the files created in step 1 are in a terminal. Currently, both the certificate and key are encrypted, and while `wpa_supplicant` can work with them in their current state, it's not guaranteed. To ensure that they can be used properly, run the following commands. This will create two new files, which are decrypted copies of the certificate and key.
@@ -68,6 +70,7 @@ Not all systems are built for GUIs, or have NetworkManager installed. This metho
 sudo openssl pkey -in personalKey.pem -out decryptedKey.pem
 sudo openssl x509 -in personalCert.pem -out decryptedCert.pem
 ```
+The first of these commands will ask for a password. Enter the password of the file.
 
 3. Now that these files are decrypted, we can create the configuration file for `wpa_supplicant`. Open your text editor of choice and create a file in `/etc/wpa_supplicant`, and fill in the file according to the block below. You can name the file whatever you wish, but for automation purposes, its recommended to name the file `wpa_supplicant-[interface name].conf`. This makes it easier for `systemd` and `dhcpcd` to interface with `wpa_supplicant` once it's set up.
 ```bash
