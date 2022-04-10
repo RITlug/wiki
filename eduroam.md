@@ -31,7 +31,7 @@ Initial setup requires internet access to download certificates.
 9. You now have everything you need to connect to the network
 
 
-## General network information
+## General Network Information
 
 The process of connecting to the network may be different depending on the Linux distribution you use. In general, here is some information that may be asked during the connection process:
 
