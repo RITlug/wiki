@@ -35,17 +35,12 @@ Initial setup requires internet access to download certificates.
 
 The process of connecting to the network may be different depending on the Linux distribution you use. In general, here is some information that may be asked during the connection process:
 
-**Identity:** Your RIT email address. i.e. [username]@rit.edu
-
-**Authentication:** TLS
-
-**Wifi Security:** WPA and WPA2 Enterprise
-
-**CA certificate:** The RIT .cer certificate you downloaded earlier
-
-**User Certificate/private key:** Your .p12 file from earlier.
-
-**User Key Password:** The password you set for this .p12 file earlier.
+- *Identity:* Your RIT email address. i.e. [username]@rit.edu
+- *Authentication:* TLS
+- *Wifi Security:* WPA and WPA2 Enterprise
+- *CA certificate:* The RIT .cer certificate you downloaded earlier.
+- *User Certificate/private key:* The other file you downloaded (**not the .cer file**). Note that, depending on the file you download, the certificate and private key may or may not be separate.
+- *User Key Password:* The password you set for the above file earlier.
 
 
 ### NetworkManager (GUI) Setup
