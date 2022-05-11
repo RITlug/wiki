@@ -103,6 +103,8 @@ If you are unable to connect using certificates, you can follow the [ITS RESNet 
 
 Based on the experiences of some RITlug members, it has been observed that RIT is using EAP-TLS authentication rather than MSCHAPV2, a practice which appears to be getting more common among other eduroam member universities.
 
+## See Also
+- [Connecting a Raspberry Pi to UVA's Eduroam WiFi](https://scholarslab.lib.virginia.edu/blog/raspberry-pi-uva-eduroam/)
 
 <!--
 ## Getting the config
