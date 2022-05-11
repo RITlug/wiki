@@ -68,11 +68,10 @@ sudo openssl x509 -in personalCert.pem -out decryptedCert.pem
 The first of these commands will ask for a password. Enter the password of the file.
 
 3. Now that these files are decrypted, we can create the configuration file for `wpa_supplicant`. Open your text editor of choice and create a file in `/etc/wpa_supplicant`, and fill in the file according to the block below. You can name the file whatever you wish, but for automation purposes, its recommended to name the file `wpa_supplicant-[interface name].conf`. This makes it easier for `systemd` and `dhcpcd` to interface with `wpa_supplicant` once it's set up.
-```bash
+```
 ctrl_interface=/var/run/wpa_supplicant
 ctrl_interface_group=wheel
 update_config=1
-
 network={
     ssid="eduroam"
     scan_ssid=1
