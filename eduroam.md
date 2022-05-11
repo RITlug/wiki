@@ -6,7 +6,7 @@ layout: default
 ---
 ## An Overview
 
-Starting after 2022 commencement RIT is replacing the 'RIT' wifi network with a larger, multi-university 'eduroam' network. While this change may seem straightforward, RIT has decided to use EAP-TLS authentication rather than using MSCHAPV2. This is not a widespread practice, even among other universities who utilize the eduroam network. This can lead to some confusion, especially for anyone not running MacOS or Windows. This guide hopes to clear that up.
+Starting after 2022 commencement RIT is replacing the 'RIT' wifi network with a larger, multi-university 'eduroam' network. This can lead to some confusion, especially for anyone not running MacOS or Windows.
 
 ## Purpose of this guide
 This guide aims to provide linux users at RIT with an alternative to the [official RIT helpdesk guidance](https://help.rit.edu/sp?id=kb_article&sysparm_article=KB0040935&sys_kb_id=89e96dc91b57cd90b4c7ffbf034bcb58&spa=1) for users who want more manual control over their connection than is provided by the provided SecureW2 utility that RIT's instructions guide people to.
@@ -98,6 +98,10 @@ Note that while this config file is persistent across reboots, as this guide sta
 ## Alternate - RIT-Legacy
 
 If you are unable to connect using certificates, you can follow the [ITS RESNet manual registration instructions](https://www.rit.edu/its/resnet/manual-registration).
+
+## Quirks
+
+Based on the experiences of some RITlug members, it has been observed that RIT is using EAP-TLS authentication rather than MSCHAPV2, which appears to be more common among other eduroam member universities.
 
 
 <!--
