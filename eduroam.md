@@ -105,6 +105,8 @@ Based on the experiences of some RITlug members, it has been observed that RIT i
 
 ## See Also
 - [Connecting a Raspberry Pi to UVA's Eduroam WiFi](https://scholarslab.lib.virginia.edu/blog/raspberry-pi-uva-eduroam/)
+- A [UNH guide](https://td.unh.edu/TDClient/60/Portal/Shared/FileOpen?AttachmentID=fd1b3d17-3dae-4b04-9158-bb2fa058c4bd&ItemID=1623&ItemComponent=26&IsInline=-1) on conecting raspberry pi's to eduroam in a few different ways
+- 
 
 <!--
 ## Getting the config
