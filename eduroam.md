@@ -101,7 +101,7 @@ If you are unable to connect using certificates, you can follow the [ITS RESNet 
 
 ## Quirks
 
-Based on the experiences of some RITlug members, it has been observed that RIT is using EAP-TLS authentication rather than MSCHAPV2, which appears to be more common among other eduroam member universities.
+Based on the experiences of some RITlug members, it has been observed that RIT is using EAP-TLS authentication rather than MSCHAPV2, a practice which appears to be getting more common among other eduroam member universities.
 
 
 <!--
