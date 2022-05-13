@@ -8,17 +8,32 @@ layout: default
 
 Starting after 2022 commencement RIT is replacing the 'RIT' wifi network with a larger, multi-university 'eduroam' network. While this change may seem straightforward, RIT has decided to use EAP-TLS authentication rather than using MSCHAPV2. This is not a widespread practice, even among other universities who utilize the eduroam network. This can lead to some confusion, especially for anyone not running MacOS or Windows. This guide hopes to clear that up.
 
+## Required Programs
+
+### GUI Setup
+- NetworkManager and a desktop environment that uses it (KDE, GNOME, LXDE, Cinnamon, MATE)
+- Terminal emulator
+- Root/`sudo` permissions
+
+### CLI Setup
+- `wpa_supplicant`
+- Terminal emulator
+- Root/`sudo` permissions
+- `openssl` or similar
+- Some text editor (terminal text editors such as `micro`, `nvim`/`vim`, or `emacs` are easiest for this purpose, but not strictly necessary)
+- 
+
 ## Initial Setup
 
-Initial setup requires internet access to download certificates. 
+Initial setup requires internet access to download certificates. This can be done on campus by connecting to the `RIT-WiFi` network.
 
-1. Go to [*https://rit.edu/wifi*](https://rit.edu/wifi), then select 'eduroam'. ![](/assets/img/eduroam/wifi-page.png)
+1. Go to [*https://rit.edu/wifi*](https://rit.edu/wifi), then select `eduroam`. ![](/assets/img/eduroam/wifi-page.png)
 
-2. In the 'select your device' dropdown, select the 'user-defined' option. ![](/assets/img/eduroam/select-os.png)
+2. In the 'Select your device' dropdown, select the `user-defined` option. ![](/assets/img/eduroam/select-os.png)
 
-3. Click 'sign in' and enter your RIT credentials when prompted. ![](/assets/img/eduroam/start-user-cert.png)
+3. Click 'Sign in' and enter your RIT credentials when prompted. ![](/assets/img/eduroam/start-user-cert.png)
 
-4. Once you are logged in, you will be asked to create a certificate. Enter a name you would like to give this certificate in the 'User Description' input box, then, click the 'create' button. ![](/assets/img/eduroam/create-user-cert.png)
+4. Once you are logged in, you will be asked to create a certificate. Enter a name you would like to give this certificate in the 'User Description' input box, then, click the 'Create' button. ![](/assets/img/eduroam/create-user-cert.png)
 
 5. You will then be prompted to create a password to protect your private key. This will be needed to set up eduroam on a new device. If you are unsure, you can use [1Password's public generator](https://1password.com/password-generator/?) which has a "memorable password" mode. The password you choose must be at least six (but no more than 16) characters long and contain a letter, number, and symbol. ![](/assets/img/eduroam/password.png)
 
@@ -26,7 +41,7 @@ Initial setup requires internet access to download certificates.
 
 7. Click the link on this page to save the RIT CA Cert. You'll also want to have this handy for the next step ![](/assets/img/eduroam/root-ca.png)
 
-8. In a terminal, navigate to the directory you saved the certificates to. Copy the RIT certificate file to '/usr/local/share/ca-certificates/'. A command like `sudo cp *.cer /usr/local/share/ca-certificates/` will copy all files ending in .cer in your current folder to this location.
+8. In a terminal, navigate to the directory you saved the certificates to. Copy the RIT certificate file to `/usr/local/share/ca-certificates/`. A command like `sudo cp *.cer /usr/local/share/ca-certificates/` will copy all files ending in .cer in your current folder to this location.
 
 9. You now have everything you need to connect to the network
 
@@ -43,18 +58,11 @@ The process of connecting to the network may be different depending on the Linux
 - *User Key Password:* The password you set for the above file earlier.
 
 
-### NetworkManager (GUI) Setup
 
-1. To connect click the wifi logo in the status bar, and then select 'eduroam' ![](/assets/img/eduroam/open-networkmanager.png)
-
-2. Enter the configuration details in the window that appears. If the password field turns red it means the password is incorrect. ![](/assets/img/eduroam/configure-networkmanager.png)
-
-Once these instructions are complete, you will be able to connect to the
-new eduroam setup without needing to run any scripts!
 
 ### wpa_supplicant (CLI) Setup
 
-Not all systems are built for GUIs, or have NetworkManager installed. This method, while more involved, should work properly for these types of systems.
+This is the configuration recommended by ITS, as it authenticates both the client to the server, and the server to the client. While this method is more involved, it should work properly for systems without a GUI, as well as for systems that already have `wpa_supplicant` installed.
 
 If you do not have a `.pem` file from RIT before starting this section, go back to the beginning of this page, and create a new certificate, downloading the `PEM` option instead.
 
@@ -68,7 +76,7 @@ sudo openssl x509 -in personalCert.pem -out decryptedCert.pem
 The first of these commands will ask for a password. Enter the password of the file.
 
 3. Now that these files are decrypted, we can create the configuration file for `wpa_supplicant`. Open your text editor of choice and create a file in `/etc/wpa_supplicant`, and fill in the file according to the block below. You can name the file whatever you wish, but for automation purposes, its recommended to name the file `wpa_supplicant-[interface name].conf`. This makes it easier for `systemd` and `dhcpcd` to interface with `wpa_supplicant` once it's set up.
-```bash
+```
 ctrl_interface=/var/run/wpa_supplicant
 ctrl_interface_group=wheel
 update_config=1
@@ -77,6 +85,9 @@ network={
     ssid="eduroam"
     scan_ssid=1
     key_mgmt=WPA-EAP
+    proto=WPA2
+    pairwise=CCMP
+    group=CCMP
     eap=TLS
     identity="abc1234@rit.edu"
     ca_cert="/location/of/RIT/cert"
@@ -92,36 +103,18 @@ sudo dhcpcd [interface name]
 ```
 Note that while this config file is persistent across reboots, as this guide stands, you will need to start `wpa_supplicant` and `dhcpcd` manually on each boot. For more information on starting `wpa_supplicant` at boot, and auto-starting `dhcpcd`, consult the [ArchWiki](https://wiki.archlinux.org/title/Wpa_supplicant#At_boot_(systemd)), or your distribution's wiki for non-`systemd` systems.
 
+### NetworkManager (GUI) Setup
+
+Note that while this connection is functional, it is less secure, as it only checks that the client is acceptable for the server. The `wpa_supplicant` configuration instructions includes an authentication check from the client to the server as well. 
+
+1. To connect click the wifi logo in the status bar, and then select `eduroam`. ![](/assets/img/eduroam/open-networkmanager.png)
+
+2. Enter the configuration details in the window that appears. If the password field turns red it means the password is incorrect. ![](/assets/img/eduroam/configure-networkmanager.png)
+
+Once these instructions are complete, you will be able to connect to the
+new eduroam setup without needing to run any scripts!
+
 
 ## Alternate - RIT-Legacy
 
 If you are unable to connect using certificates, you can follow the [ITS RESNet manual registration instructions](https://www.rit.edu/its/resnet/manual-registration).
-
-
-<!--
-## Getting the config
-
-1. Create a temporary directory somewhere and cd into it from a terminal
-2. download the linux installer from https://rit.edu/wifi. Dont open it since it might break the CRLF line endings and the binary file thats encoded at the bottom of the file if you save it after opening on a linux machine.
-3. run `sed -e '0,/^#ARCHIVE#$/d' "PATH_TO_INSTALLER.run" | gzip -d | tar -x` inside that folder to extract the contents
-4. create a new python file in that folder. name it whatever you want. paste in the following contents:
-```python
-from client import PaladinLinuxClient
-
-deciphered = PaladinLinuxClient.decipher(PaladinLinuxClient.CONFIG_FILE)
-strip_namespace=PaladinLinuxClient.strip_namespace(deciphered)
-
-
-with open(PaladinLinuxClient.CONFIG_FILE + ".xml", "w") as conf:
-	conf.write(strip_namespace)
-```
-5. run this script to use the clients own decryption mechanism to decrypt the config file to a plain XML file.
-6. this file seems to contain all the config that you should need in order to manually configure the network. Sections of it from which you should grab values will be referenced in the steps below so as to avoid copying the values themselves and compromising the security of RIT's network.
-
-## Configuring the network
-
-TBD - the eduroam network has not yet been enabled
-
-this might be vaguely helpful in the meantime: http://kb.mit.edu/confluence/pages/viewpage.action?pageId=152599592
- -->
-
