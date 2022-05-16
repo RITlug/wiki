@@ -144,7 +144,7 @@ For debugging purposes, the `-B` flag shown above can be omitted, allowing you t
 Note that while this config file is persistent across reboots, as this guide stands, you will need to start `wpa_supplicant` and `dhcpcd` manually on each boot. For more information on starting `wpa_supplicant` at boot, and auto-starting `dhcpcd`, consult the [ArchWiki](https://wiki.archlinux.org/title/Wpa_supplicant#At_boot_(systemd)), or your distribution's wiki for non-`systemd` systems.
 ## GUI Setup
 
-Note that while this connection is functional, it is less secure, as it only checks that the client is acceptable for the server. The `wpa_supplicant` configuration instructions includes an authentication check from the client to the server as well.
+Note that while this connection is functional, it is less secure, as it only checks that the client is safe for the server. The `wpa_supplicant` configuration instructions includes an authentication that the server is safe for the client as well.
 
 ### NetworkManager Configuration
 
