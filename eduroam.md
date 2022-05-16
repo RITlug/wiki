@@ -41,7 +41,7 @@ Initial setup requires internet access to download certificates. This can be don
 
 5. You will then be prompted to create a password to protect your private key. This will be needed to set up eduroam on a new device. If you are unsure, you can use [1Password's public generator](https://1password.com/password-generator/?) which has a "memorable password" mode. The password you choose must be at least six (but no more than 16) characters long and contain a letter, number, and symbol. ![](/assets/img/eduroam/password.png)
 
-6. Choose a format to download your certificate in. If you aren't sure what you need, select P12 format and save the file somewhere you can get to it easily. If you are using `wpa_supplicant` and the terminal-only setup, select the PEM option. ![](/assets/img/eduroam/cert-download.png)
+6. Choose a format to download your certificate in. If you aren't sure what you need, select P12 format and save the file somewhere you can get to it easily. If you are using `iwd` and the terminal-only setup, select the PEM option. ![](/assets/img/eduroam/cert-download.png)
 
 7. Click the link on this page to save the RIT CA Cert. You'll also want to have this handy for the next step ![](/assets/img/eduroam/root-ca.png)
 
@@ -56,7 +56,7 @@ The process of connecting to the network may be different depending on the Linux
 
 - *Identity:* Your RIT email address. i.e. [username]@rit.edu
 - *Authentication:* TLS
-- *Wifi Security:* WPA and WPA2 Enterprise
+- *Wifi Security:* WPA2 Enterprise
 - *CA certificate:* The RIT `.cer` certificate you downloaded earlier.
 - *User Certificate/private key:* The other file you downloaded (**not the .cer file**). Note that, depending on the file you download, the certificate and private key may or may not be separate.
 - *User Key Password:* The password you set for the above file earlier.
