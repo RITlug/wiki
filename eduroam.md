@@ -6,7 +6,10 @@ layout: default
 ---
 ## An Overview
 
-Starting after 2022 commencement RIT is replacing the 'RIT' wifi network with a larger, multi-university 'eduroam' network. While this change may seem straightforward, RIT has decided to use EAP-TLS authentication rather than using MSCHAPV2. This is not a widespread practice, even among other universities who utilize the eduroam network. This can lead to some confusion, especially for anyone not running MacOS or Windows. This guide hopes to clear that up.
+Starting after 2022 commencement RIT is replacing the 'RIT' wifi network with a larger, multi-university 'eduroam' network. This can lead to some confusion, especially for anyone not running MacOS or Windows.
+
+## Purpose of this guide
+This guide aims to provide Linux users at RIT with an alternate to the [official RIT Helpdesk guidance](https://help.rit.edu/sp/?id=kb_article_view&sysparm_article=KB0040935) for users who want more manual control over their connection than is provided by the SecureW2 utility that RIT's instructions guide people to.
 
 ## Required Programs
 
@@ -16,7 +19,7 @@ Starting after 2022 commencement RIT is replacing the 'RIT' wifi network with a 
 - Root/`sudo` permissions
 
 ### CLI Setup
-- `wpa_supplicant` or `iwd`
+- `wpa_supplicant`, `iwd`, or NetworkManager/`nmcli`
 - Terminal emulator
 - Root/`sudo` permissions
 <!--
@@ -153,3 +156,10 @@ new eduroam setup without needing to run any scripts!
 ## Alternate - RIT-Legacy
 
 If you are unable to connect using certificates, you can follow the [ITS RESNet manual registration instructions](https://www.rit.edu/its/resnet/manual-registration).
+
+## See Also
+
+- [Connecting a Raspberry Pi to UVA's Eduroam Wifi][https://scholarslab.lib.virginia.edu/blog/raspberry-pi-uva-eduroam/)
+- [Alternate Raspberry Pi information](https://s55ma.radioamater.si/2020/10/28/raspberry-pi-eap-tls-wi-fi-with-nmcli-network-manager/)
+- [wpa_supplicant's official documentation](https://w1.fi/wpa_supplicant)
+- [iwd's official autotests](https://git.kernel.org/pub/scm/network/wireless/iwd.git/tree/autotests)
