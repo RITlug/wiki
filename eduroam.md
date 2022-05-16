@@ -60,6 +60,20 @@ The process of connecting to the network may be different depending on the Linux
 - *CA certificate:* The RIT `.cer` certificate you downloaded earlier.
 - *User Certificate/private key:* The other file you downloaded (**not the .cer file**). Note that, depending on the file you download, the certificate and private key may or may not be separate.
 - *User Key Password:* The password you set for the above file earlier.
+
+## GUI Setup
+
+<!-- Commented out since its no longer technically accurate
+Note that while this connection is functional, it is less secure, as it only checks that the client is safe for the server. The `wpa_supplicant` configuration instructions includes an authentication that the server is safe for the client as well. -->
+
+### NetworkManager Configuration
+
+1. To connect click the wifi logo in the status bar, and then select `eduroam`. ![](/assets/img/eduroam/open-networkmanager.png)
+
+2. Enter the configuration details in the window that appears. If the password field turns red it means the password is incorrect. ![](/assets/img/eduroam/configure-networkmanager.png)
+
+Your computer should now be connected to the `eduroam` network.
+
 ## CLI Setup
 
 Note: Both the `iwd` and the `wpa_supplicant` configurations were tested on an otherwise-blank Arch install ISO. File location may differ across distributions. If directories don't exist, check your distribution's documentation for the correct location of the files.
@@ -142,18 +156,6 @@ For debugging purposes, the `-B` flag shown above can be omitted, allowing you t
 
 
 Note that while this config file is persistent across reboots, as this guide stands, you will need to start `wpa_supplicant` and `dhcpcd` manually on each boot. For more information on starting `wpa_supplicant` at boot, and auto-starting `dhcpcd`, consult the [ArchWiki](https://wiki.archlinux.org/title/Wpa_supplicant#At_boot_(systemd)), or your distribution's wiki for non-`systemd` systems.
-## GUI Setup
-
-Note that while this connection is functional, it is less secure, as it only checks that the client is safe for the server. The `wpa_supplicant` configuration instructions includes an authentication that the server is safe for the client as well.
-
-### NetworkManager Configuration
-
-1. To connect click the wifi logo in the status bar, and then select `eduroam`. ![](/assets/img/eduroam/open-networkmanager.png)
-
-2. Enter the configuration details in the window that appears. If the password field turns red it means the password is incorrect. ![](/assets/img/eduroam/configure-networkmanager.png)
-
-Your computer should now be connected to the `eduroam` network.
-
 
 ## Alternate - RIT-Legacy
 
