@@ -19,7 +19,7 @@ This guide aims to provide Linux users at RIT with an alternate to the [official
 - Root/`sudo` permissions
 
 ### CLI Setup
-- `wpa_supplicant`, `iwd`, or NetworkManager/`nmcli`
+- `wpa_supplicant`, `iwd`, <!--or NetworkManager/`nmcli`-->
 - Terminal emulator
 - Root/`sudo` permissions
 <!--
@@ -45,9 +45,9 @@ Initial setup requires internet access to download certificates. This can be don
 
 7. Click the link on this page to save the RIT CA Cert. You'll also want to have this handy for the next step ![](/assets/img/eduroam/root-ca.png)
 
-8. In a terminal, navigate to the directory you saved the certificates to. Copy the RIT certificate file to `/usr/local/share/ca-certificates/`. A command like `sudo cp *.cer /usr/local/share/ca-certificates/` will copy all files ending in .cer in your current folder to this location.
+8. If you are using the GUI setup process, copy the RIT certificate file to `/usr/local/share/ca-certificates/`. As this must be done as root, this will most likely require a terminal. A command like `sudo cp *.cer /usr/local/share/ca-certificates/` will copy all files ending in .cer in your current folder to this location.
 
-9. You now have everything you need to connect to the network
+9. You now have everything you need to connect to the network.
 
 
 ## General Network Information
@@ -57,14 +57,16 @@ The process of connecting to the network may be different depending on the Linux
 - *Identity:* Your RIT email address. i.e. [username]@rit.edu
 - *Authentication:* TLS
 - *Wifi Security:* WPA and WPA2 Enterprise
-- *CA certificate:* The RIT .cer certificate you downloaded earlier.
+- *CA certificate:* The RIT `.cer` certificate you downloaded earlier.
 - *User Certificate/private key:* The other file you downloaded (**not the .cer file**). Note that, depending on the file you download, the certificate and private key may or may not be separate.
 - *User Key Password:* The password you set for the above file earlier.
 ## CLI Setup
 
-This is the configuration recommended by ITS, as it authenticates both the client to the server, and the server to the client. While this method is more involved, it should work properly for systems without a GUI, as well as for systems that already have `wpa_supplicant` installed. If you do not have a `.pem` file from RIT before starting this section, go back to the beginning of this page, and create a new certificate, downloading the `PEM` option instead.
+This is the configuration recommended by ITS, as it authenticates both the client to the server, and the server to the client. While this method is more involved, it should work properly for systems without a GUI, as well as for systems that already have `wpa_supplicant` installed.
 
 ### `iwd` Configuration
+
+If you do not have a `.pem` file from RIT before starting this section, go back to the beginning of this page, and create a new certificate, downloading the `PEM` option instead.
 
 1. Move both the RIT CA Cert and the encrypted `.pem` file into the following directory: `/var/lib/iwd`.
 2. In the same directory, create a configuration file named `eduroam.8021x`. In it, input the following information:
@@ -90,7 +92,7 @@ Replace `abc1234@rit.edu` and `P@ssw0rd1` with your RIT email and password. *Do 
 
 For any devices having issues, see [this link](https://wiki.archlinux.org/title/Iwd#Verbose_TLS_debugging) to start the debugging process. Common problems include:
 
-- Entering an incorrect location for the certificates, or entering an invalid name for the certificates. This results in a `Not configured` on attempted connection. 
+- Entering an incorrect location for the certificates, or entering an invalid name for the certificates. This results in a `Not configured` on attempted connection.
 - Entering `TTLS` instead of `TLS`. This results in a `journalctl` error shown below:
 ```
 EAP server tried method 13 while client was configured for method 21
@@ -100,18 +102,10 @@ EAP completed with eapFail
 
 ### wpa_supplicant Configuration
 
-This configuration in its current state is less recommended, as it creates decrypted certificates and keys that can be used by others. 
+If you do not have a `.p12` file from RIT before starting this section, go back to the beginning of this page, and create a new certificate, downloading the `P12` option instead.
 
-1. Open the downloaded `.pem` file in the text editor of your choice. You will notice that this contains two separate blocks, an encrypted private key, and a certificate. These are both crucial, but they cannot be used in their current state for multiple reasons. To make these work properly with `wpa_supplicant`, copy each block, including the `BEGIN` and `END` lines to their own separate files. I called these files `personalCert.pem` and `personalKey.pem`.
-
-2. Once you have these two files, exit your text editor and open the folder where the files created in step 1 are in a terminal. Currently, both the certificate and key are encrypted, and while `wpa_supplicant` can work with them in their current state, it's not guaranteed. To ensure that they can be used properly, run the following commands. This will create two new files, which are decrypted copies of the certificate and key.
-```bash
-sudo openssl pkey -in personalKey.pem -out decryptedKey.pem
-sudo openssl x509 -in personalCert.pem -out decryptedCert.pem
-```
-The first of these commands will ask for a password. Enter the password of the file.
-
-3. Now that these files are decrypted, we can create the configuration file for `wpa_supplicant`. Open your text editor of choice and create a file in `/etc/wpa_supplicant`, and fill in the file according to the block below. You can name the file whatever you wish, but for automation purposes, its recommended to name the file `wpa_supplicant-[interface name].conf`. This makes it easier for `systemd` and `dhcpcd` to interface with `wpa_supplicant` once it's set up.
+1. Move both the RIT CA Cert and the encrypted `.p12` file into a common directory that you don't plan on interacting with much. For testing purposes, `/opt/` was used. Locations within `~` or `/home/$USER` may not work properly, due to improper permissions, although this is untested as of writing.
+2. Open your text editor of choice and create a file in `/etc/wpa_supplicant`, and fill in the file according to the block below. You can name the file whatever you wish, but for automation purposes, its recommended to name the file `wpa_supplicant-[interface name].conf`. This makes it easier for `systemd` and `dhcpcd` to interface with `wpa_supplicant` once it's set up.
 ```
 ctrl_interface=/var/run/wpa_supplicant
 ctrl_interface_group=wheel
@@ -127,12 +121,12 @@ network={
     eap=TLS
     identity="abc1234@rit.edu"
     ca_cert="/location/of/RIT/cert"
-    client_cert="location/of/decryptedCert.pem"
-    private_key="location/of/decryptedKey.pem"
+    private_key="location/of/p12PrivateKey.p12"
+    private_key_passwd="P@ssw0rd1"
 }
 ```
 
-4. You're all set! Run the following commands in a terminal to start `wpa_supplicant`, then start `dhcpcd`. After this, your network should be set up properly. 
+3. You're all set! Run the following commands in a terminal to start `wpa_supplicant`, then start `dhcpcd`. After this, your network should be set up properly.
 ```bash
 sudo wpa_supplicant -i [interface name] -c /etc/wpa_supplicant/[config file name]
 sudo dhcpcd [interface name]
@@ -141,7 +135,7 @@ Note that while this config file is persistent across reboots, as this guide sta
 
 ## GUI Setup
 
-Note that while this connection is functional, it is less secure, as it only checks that the client is acceptable for the server. The `wpa_supplicant` configuration instructions includes an authentication check from the client to the server as well. 
+Note that while this connection is functional, it is less secure, as it only checks that the client is acceptable for the server. The `wpa_supplicant` configuration instructions includes an authentication check from the client to the server as well.
 
 ### NetworkManager Configuration
 
