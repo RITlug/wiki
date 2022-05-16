@@ -62,6 +62,8 @@ The process of connecting to the network may be different depending on the Linux
 - *User Key Password:* The password you set for the above file earlier.
 ## CLI Setup
 
+Note: Both the `iwd` and the `wpa_supplicant` configurations were tested on an otherwise-blank Arch install ISO. File location may differ across distributions. If directories don't exist, check your distribution's documentation for the correct location of the files.
+
 <!-- Waiting for a response from ITS on whether these configuration states are correct or not.
 This is the configuration recommended by ITS, as it authenticates both the client to the server, and the server to the client. While this method is more involved, it should work properly for systems without a GUI, as well as for systems that already have `wpa_supplicant` installed.
 -->
@@ -121,6 +123,8 @@ network={
     pairwise=CCMP
     group=CCMP
     eap=TLS
+    anonymous_identity="anonymous@rit.edu"
+    domain_match="rit.edu"
     identity="abc1234@rit.edu"
     ca_cert="/location/of/RIT/cert"
     private_key="location/of/p12PrivateKey.p12"
