@@ -63,7 +63,7 @@ The process of connecting to the network may be different depending on the Linux
 
 ## GUI Setup
 
-<!-- Commented out since its no longer technically accurate
+<!-- Once confirmed all configurations are acceptable, this comment will be removed
 Note that while this connection is functional, it is less secure, as it only checks that the client is safe for the server. The `wpa_supplicant` configuration instructions includes an authentication that the server is safe for the client as well. -->
 
 ### NetworkManager Configuration
@@ -78,7 +78,7 @@ Your computer should now be connected to the `eduroam` network.
 
 Note: Both the `iwd` and the `wpa_supplicant` configurations were tested on an otherwise-blank Arch install ISO. File location may differ across distributions. If directories don't exist, check your distribution's documentation for the correct location of the files.
 
-<!-- Waiting for a response from ITS on whether these configuration states are correct or not.
+<!-- Once confirmed all configurations are acceptable, this comment will be removed
 This is the configuration recommended by ITS, as it authenticates both the client to the server, and the server to the client. While this method is more involved, it should work properly for systems without a GUI, as well as for systems that already have `wpa_supplicant` installed.
 -->
 
