@@ -62,7 +62,9 @@ The process of connecting to the network may be different depending on the Linux
 - *User Key Password:* The password you set for the above file earlier.
 ## CLI Setup
 
+<!-- Waiting for a response from ITS on whether these configuration states are correct or not.
 This is the configuration recommended by ITS, as it authenticates both the client to the server, and the server to the client. While this method is more involved, it should work properly for systems without a GUI, as well as for systems that already have `wpa_supplicant` installed.
+-->
 
 ### `iwd` Configuration
 
@@ -128,11 +130,14 @@ network={
 
 3. You're all set! Run the following commands in a terminal to start `wpa_supplicant`, then start `dhcpcd`. After this, your network should be set up properly.
 ```bash
-sudo wpa_supplicant -i [interface name] -c /etc/wpa_supplicant/[config file name]
+sudo wpa_supplicant -B -i [interface name] -c /etc/wpa_supplicant/[config file name]
 sudo dhcpcd [interface name]
 ```
-Note that while this config file is persistent across reboots, as this guide stands, you will need to start `wpa_supplicant` and `dhcpcd` manually on each boot. For more information on starting `wpa_supplicant` at boot, and auto-starting `dhcpcd`, consult the [ArchWiki](https://wiki.archlinux.org/title/Wpa_supplicant#At_boot_(systemd)), or your distribution's wiki for non-`systemd` systems.
 
+For debugging purposes, the `-B` flag shown above can be omitted, allowing you to see the complete output of the command. Note that this omitting this flag will make the current terminal unusable, so a second session or terminal will be required to run the `dhcpcd` command. Also note that closing the terminal containing the `wpa_supplicant` command will also end the connection to the Wi-Fi, so act with care.
+
+
+Note that while this config file is persistent across reboots, as this guide stands, you will need to start `wpa_supplicant` and `dhcpcd` manually on each boot. For more information on starting `wpa_supplicant` at boot, and auto-starting `dhcpcd`, consult the [ArchWiki](https://wiki.archlinux.org/title/Wpa_supplicant#At_boot_(systemd)), or your distribution's wiki for non-`systemd` systems.
 ## GUI Setup
 
 Note that while this connection is functional, it is less secure, as it only checks that the client is acceptable for the server. The `wpa_supplicant` configuration instructions includes an authentication check from the client to the server as well.
@@ -143,8 +148,7 @@ Note that while this connection is functional, it is less secure, as it only che
 
 2. Enter the configuration details in the window that appears. If the password field turns red it means the password is incorrect. ![](/assets/img/eduroam/configure-networkmanager.png)
 
-Once these instructions are complete, you will be able to connect to the
-new eduroam setup without needing to run any scripts!
+Your computer should now be connected to the `eduroam` network.
 
 
 ## Alternate - RIT-Legacy
