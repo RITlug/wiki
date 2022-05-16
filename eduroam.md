@@ -19,7 +19,7 @@ This guide aims to provide Linux users at RIT with an alternate to the [official
 - Root/`sudo` permissions
 
 ### CLI Setup
-- `wpa_supplicant`, `iwd`, <!--or NetworkManager/`nmcli`-->
+- `wpa_supplicant`, `iwd` <!--, or NetworkManager/`nmcli`-->
 - Terminal emulator
 - Root/`sudo` permissions
 <!--
