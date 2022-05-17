@@ -160,7 +160,7 @@ For debugging purposes, the `-B` flag shown above can be omitted, allowing you t
 
 Note that while this config file is persistent across reboots, as this guide stands, you will need to start `wpa_supplicant` and `dhcpcd` manually on each boot. For more information on starting `wpa_supplicant` at boot, and auto-starting `dhcpcd`, consult the [ArchWiki](https://wiki.archlinux.org/title/Wpa_supplicant#At_boot_(systemd)), or your distribution's wiki for non-`systemd` systems.
 
-## Alternate - RIT-Legacy
+## Alternate - RIT-WiFi
 
 If you are unable to connect using certificates, you can follow the [ITS RESNet manual registration instructions](https://www.rit.edu/its/resnet/manual-registration).
 
