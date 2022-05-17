@@ -19,12 +19,9 @@ This guide aims to provide Linux users at RIT with an alternate to the [official
 - Root/`sudo` permissions
 
 ### CLI Setup
-- `wpa_supplicant`, `iwd` <!--, or NetworkManager/`nmcli`-->
+- `wpa_supplicant`, `iwd`, or `nmcli`
 - Terminal emulator
 - Root/`sudo` permissions
-<!--
-- `openssl` or similar
-    this line may not be necessary... wpa_supplicant seems to have a way to open encrypted cert/key files. Will explore further.-->
 - Some text editor (terminal text editors such as `micro`, `nvim`/`vim`, or `emacs` are easiest for this purpose, but not strictly necessary)
 
 ## Initial Setup
@@ -63,8 +60,7 @@ The process of connecting to the network may be different depending on the Linux
 
 ## GUI Setup
 
-<!-- Once confirmed all configurations are acceptable, this comment will be removed
-Note that while this connection is functional, it is less secure, as it only checks that the client is safe for the server. The `wpa_supplicant` configuration instructions includes an authentication that the server is safe for the client as well. -->
+This section will work with both `.pem` and `.p12` certificates and keys.
 
 ### NetworkManager Configuration
 
@@ -76,18 +72,76 @@ Your computer should now be connected to the `eduroam` network.
 
 ## CLI Setup
 
-Note: Both the `iwd` and the `wpa_supplicant` configurations were tested on an otherwise-blank Arch install ISO. File location may differ across distributions. If directories don't exist, check your distribution's documentation for the correct location of the files.
+Note: Both the `iwd` and `wpa_supplicant` configurations were tested on an otherwise-blank Arch install ISO. `nmcli` configuration was tested on Tails. File location may differ across distributions. If directories don't exist, check your distribution's documentation for the correct location of the files.
 
-<!-- Once confirmed all configurations are acceptable, this comment will be removed
-This is the configuration recommended by ITS, as it authenticates both the client to the server, and the server to the client. While this method is more involved, it should work properly for systems without a GUI, as well as for systems that already have `wpa_supplicant` installed.
--->
+### nmcli Configuration
 
-### `iwd` Configuration
+`nmcli` is the terminal interface for NetworkManager. This means that it can either use the `p12` or `pem` variant of your certificate and key. The instructions below are using the `p12` variant. If you wish to use the `pem` variant, replace all instances of the `p12` file with your `pem` file. This information is also useful for troubleshooting the GUI setup, should it work incorrectly.
+
+1. To find out what the name of your network interface is, run `nmcli`. This will return several results. For the examples that follow, this tutorial assumes that `wlan0` is the correct network interface.
+
+2. Open a terminal, and run the following command: 
+```
+nmcli connection add type wifi ifname wlan0 con-name eduroam ssid eduroam
+cd /etc/NetworkManager/system-connections/
+```
+This will add a new connection into NetworkManager's location on the drive, then move you into the directory where it was added. 
+
+3. Open the `eduroam.nmconnection` file in the editor of your choice *as root*. If you do not open it as root, the changes will not be saved.
+4. Edit the file so that it contains the following lines
+```
+[connection]
+id=eduroam
+uuid=
+type=wifi
+interface-name=wlan0
+permissions=
+
+[wifi]
+mac-address-blacklist=
+mode=infrastructure
+ssid=eduroam
+
+[wifi-security]
+auth-alg=open
+key-mgmt=wpa-eap
+
+[802-1x]
+ca-cert=location/of/ritCACert
+client-cert=location/of/p12PrivateKey
+domain-suffix-match=radius.rit.edu
+eap=tls;
+identity=abc1234@rit.edu
+private-key=location/of/p12PrivateKey
+private-key-password=P@ssw0rd1
+
+[ipv4]
+dns-search=
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+dns-search=
+method=auto
+```
+This file will contain most of these lines already. The `uuid` field will already be filled in, do not edit this field.
+
+5. Run the following command: `nmcli conection up eduroam`
+6. (Optional) Test your connection by running: `ping 9.9.9.9`
+---
+The following configurations must use the listed file types. Use of alternative file types has not been tested, and is not recommended.
+
+### iwd Configuration
 
 If you do not have a `.pem` file from RIT before starting this section, go back to the beginning of this page, and create a new certificate, downloading the `PEM` option instead.
 
-1. Move both the RIT CA Cert and the encrypted `.pem` file into the following directory: `/var/lib/iwd`.
-2. In the same directory, create a configuration file named `eduroam.8021x`. In it, input the following information:
+1. Run the following command to determine what network interfaces you have available. This tutorial assumes a network interface of `wlan0`.
+```
+ip link
+```
+This command will list several devices. `lo`, `eth` and `veth` devices can all be ignored for the purposes of this tutorial. 
+2. Move both the RIT CA Cert and the encrypted `.pem` file into the following directory: `/var/lib/iwd`.
+3. In the same directory, create a configuration file named `eduroam.8021x`. In it, input the following information:
 ```
 [Security]
 EAP-Method=TLS
@@ -105,11 +159,11 @@ AutoConnect=true
 ```
 Replace `abc1234@rit.edu` and `P@ssw0rd1` with your RIT email and password. *Do not change the `EAP-Identity` line*.
 
-3. Run the following command as root: `iwctl station wlan0 connect eduroam`
+4. Run the following command as root: `iwctl station wlan0 connect eduroam`
 
-4. The above command will prompt you for the password *to the `.pem` file you downloaded*. Enter that now.
+5. The above command will prompt you for the password *to the `.pem` file you downloaded*. Enter that now.
 
-5. Run the following to ensure that your connection is working: `ping 9.9.9.9`
+6. (Optional) Run the following to ensure that your connection is working: `ping 9.9.9.9`
 
 For any devices having issues, see [this link](https://wiki.archlinux.org/title/Iwd#Verbose_TLS_debugging) to start the debugging process. Common problems include:
 
@@ -125,8 +179,14 @@ EAP completed with eapFail
 
 If you do not have a `.p12` file from RIT before starting this section, go back to the beginning of this page, and create a new certificate, downloading the `P12` option instead.
 
-1. Move both the RIT CA Cert and the encrypted `.p12` file into a common directory that you don't plan on interacting with much. For testing purposes, `/opt/` was used. Locations within `~` or `/home/$USER` may not work properly, due to improper permissions, although this is untested as of writing.
-2. Open your text editor of choice and create a file in `/etc/wpa_supplicant`, and fill in the file according to the block below. You can name the file whatever you wish, but for automation purposes, its recommended to name the file `wpa_supplicant-[interface name].conf`. This makes it easier for `systemd` and `dhcpcd` to interface with `wpa_supplicant` once it's set up.
+This tutorial assumes that all commands are either run directly as root.
+
+1. Run the following command to determine what network devices are available. This tutorial assumes the use of the network interface `wlan0`.
+```
+wpa_cli interface
+```
+2. Move both the RIT CA Cert and the encrypted `.p12` file into a common directory that you don't plan on interacting with much. For testing purposes, `/opt/` was used. Locations within `~` or `/home/$USER` may not work properly, due to improper permissions, although this is untested as of writing.
+3. Open your text editor of choice and create a file in `/etc/wpa_supplicant`, and fill in the file according to the block below. You can name the file whatever you wish, but for automation purposes, its recommended to name the file `wpa_supplicant-[interface name].conf`. This makes it easier for `systemd` and `dhcpcd` to interface with `wpa_supplicant` once it's set up.
 ```
 ctrl_interface=/var/run/wpa_supplicant
 ctrl_interface_group=wheel
@@ -149,10 +209,10 @@ network={
 }
 ```
 
-3. You're all set! Run the following commands in a terminal to start `wpa_supplicant`, then start `dhcpcd`. After this, your network should be set up properly.
+4. You're all set! Run the following commands in a terminal to start `wpa_supplicant`, then start `dhcpcd`. After this, your network should be set up properly.
 ```bash
-sudo wpa_supplicant -B -i [interface name] -c /etc/wpa_supplicant/[config file name]
-sudo dhcpcd [interface name]
+wpa_supplicant -B -i [interface name] -c /etc/wpa_supplicant/[config file name]
+dhcpcd [interface name]
 ```
 
 For debugging purposes, the `-B` flag shown above can be omitted, allowing you to see the complete output of the command. Note that this omitting this flag will make the current terminal unusable, so a second session or terminal will be required to run the `dhcpcd` command. Also note that closing the terminal containing the `wpa_supplicant` command will also end the connection to the Wi-Fi, so act with care.
