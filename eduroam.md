@@ -88,6 +88,7 @@ cd /etc/NetworkManager/system-connections/
 This will add a new connection into NetworkManager's location on the drive, then move you into the directory where it was added. 
 
 3. Open the `eduroam.nmconnection` file in the editor of your choice *as root*. If you do not open it as root, the changes will not be saved.
+
 4. Edit the file so that it contains the following lines
 ```
 [connection]
@@ -126,8 +127,14 @@ method=auto
 ```
 This file will contain most of these lines already. The `uuid` field will already be filled in, do not edit this field.
 
-5. Run the following command: `nmcli conection up eduroam`
-6. (Optional) Test your connection by running: `ping 9.9.9.9`
+5. Run the following command: 
+```
+# nmcli conection up eduroam
+```
+6. (Optional) Test your connection by running: 
+```
+$ ping 9.9.9.9
+```
 ---
 The following configurations must use the listed file types. Use of alternative file types has not been tested, and is not recommended.
 
@@ -137,7 +144,7 @@ If you do not have a `.pem` file from RIT before starting this section, go back 
 
 1. Run the following command to determine what network interfaces you have available. This tutorial assumes a network interface of `wlan0`.
 ```
-ip link
+# ip link
 ```
 This command will list several devices. `lo`, `eth` and `veth` devices can all be ignored for the purposes of this tutorial. 
 2. Move both the RIT CA Cert and the encrypted `.pem` file into the following directory: `/var/lib/iwd`.
@@ -159,7 +166,10 @@ AutoConnect=true
 ```
 Replace `abc1234@rit.edu` and `P@ssw0rd1` with your RIT email and password. *Do not change the `EAP-Identity` line*.
 
-4. Run the following command as root: `iwctl station wlan0 connect eduroam`
+4. Run the following command as root: 
+```
+# iwctl station wlan0 connect eduroam
+```
 
 5. The above command will prompt you for the password *to the `.pem` file you downloaded*. Enter that now.
 
@@ -183,7 +193,7 @@ This tutorial assumes that all commands are either run directly as root.
 
 1. Run the following command to determine what network devices are available. This tutorial assumes the use of the network interface `wlan0`.
 ```
-wpa_cli interface
+# wpa_cli interface
 ```
 2. Move both the RIT CA Cert and the encrypted `.p12` file into a common directory that you don't plan on interacting with much. For testing purposes, `/opt/` was used. Locations within `~` or `/home/$USER` may not work properly, due to improper permissions, although this is untested as of writing.
 3. Open your text editor of choice and create a file in `/etc/wpa_supplicant`, and fill in the file according to the block below. You can name the file whatever you wish, but for automation purposes, its recommended to name the file `wpa_supplicant-[interface name].conf`. This makes it easier for `systemd` and `dhcpcd` to interface with `wpa_supplicant` once it's set up.
@@ -210,9 +220,9 @@ network={
 ```
 
 4. You're all set! Run the following commands in a terminal to start `wpa_supplicant`, then start `dhcpcd`. After this, your network should be set up properly.
-```bash
-wpa_supplicant -B -i [interface name] -c /etc/wpa_supplicant/[config file name]
-dhcpcd [interface name]
+```
+# wpa_supplicant -B -i [interface name] -c /etc/wpa_supplicant/[config file name]
+# dhcpcd [interface name]
 ```
 
 For debugging purposes, the `-B` flag shown above can be omitted, allowing you to see the complete output of the command. Note that this omitting this flag will make the current terminal unusable, so a second session or terminal will be required to run the `dhcpcd` command. Also note that closing the terminal containing the `wpa_supplicant` command will also end the connection to the Wi-Fi, so act with care.
