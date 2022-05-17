@@ -104,8 +104,11 @@ EAP-TLS-Phase2-Password=P@ssw0rd1
 AutoConnect=true
 ```
 Replace `abc1234@rit.edu` and `P@ssw0rd1` with your RIT email and password. *Do not change the `EAP-Identity` line*.
+
 3. Run the following command as root: `iwctl station wlan0 connect eduroam`
+
 4. The above command will prompt you for the password *to the `.pem` file you downloaded*. Enter that now.
+
 5. Run the following to ensure that your connection is working: `ping 9.9.9.9`
 
 For any devices having issues, see [this link](https://wiki.archlinux.org/title/Iwd#Verbose_TLS_debugging) to start the debugging process. Common problems include:
