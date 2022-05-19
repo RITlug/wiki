@@ -18,7 +18,7 @@ Software. This wiki has been modified from the
 
 ## Development usage
 
-use `hugo serve` to serve the project locally for development.
+use `bundle install` followed by `bundle exec jekyll serve` to serve the project locally for development.
 
 ## Legal
 
