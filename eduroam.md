@@ -178,12 +178,14 @@ If you do not have a `.pem` file from RIT before starting this section, go back 
 # ip link
 ```
 This command will list all available network interfaces. `lo` (Loopback), `eth` (Ethernet) and `veth` (Virtual Ethernet) devices can all be ignored for the purposes of this tutorial. 
+
 2. Move both the RIT CA Cert and the encrypted `.pem` file into the following directory: `/var/lib/iwd`. This can be done by running the following command:
 ```
 # cp location/of/pemFile /var/lib/iwd/
 ```
 This command must be run as root, as the default user does not have permission to create files in this directory.
-4. In the same directory, create a configuration file named `eduroam.8021x`. In it, input the following information:
+
+3. In the same directory, create a configuration file named `eduroam.8021x`. In it, input the following information:
 ```
 [Security]
 EAP-Method=TLS
