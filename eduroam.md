@@ -20,7 +20,7 @@ This guide aims to provide Linux users at RIT with an alternate to the [official
 
 ### CLI Setup
 - A terminal network configuration tool and an RIT-distributed personal certificate (see "Initial Setup")
-    - For `wpa_supplicant`and `nmcli`, choose the `P12` option
+    - For `wpa_supplicant` and `nmcli`, choose the `P12` option
     - For `iwd`, choose the `PEM` option
     - Other network managers are not currently documented
 - Terminal emulator
