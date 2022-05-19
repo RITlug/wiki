@@ -125,13 +125,16 @@ uuid=
 type=wifi
 interface-name=wlan0
 permissions=
+
 [wifi]
 mac-address-blacklist=
 mode=infrastructure
 ssid=eduroam
+
 [wifi-security]
 auth-alg=open
 key-mgmt=wpa-eap
+
 [802-1x]
 ca-cert=location/of/ritCACert
 client-cert=location/of/p12PrivateKey
@@ -140,9 +143,11 @@ eap=tls;
 identity=abc1234@rit.edu
 private-key=location/of/p12PrivateKey
 private-key-password=P@ssw0rd1
+
 [ipv4]
 dns-search=
 method=auto
+
 [ipv6]
 addr-gen-mode=stable-privacy
 dns-search=
@@ -190,6 +195,7 @@ EAP-TLS-ServerDomainMask=radius.rit.edu
 EAP-TLS-Phase2-Method=Tunneled-PAP
 EAP-TLS-Phase2-Identity=abc1234@rit.edu
 EAP-TLS-Phase2-Password=P@ssw0rd1
+
 [Settings]
 AutoConnect=true
 ```
@@ -235,6 +241,7 @@ If you do not have a `.p12` file from RIT before starting this section, go back 
 ctrl_interface=/var/run/wpa_supplicant
 ctrl_interface_group=wheel
 update_config=1
+
 network={
     ssid="eduroam"
     scan_ssid=1
