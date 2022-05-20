@@ -11,6 +11,35 @@ Starting after 2022 commencement RIT is replacing the 'RIT' wifi network with a 
 ## Purpose of this guide
 This guide aims to provide Linux users at RIT with an alternate to the [official RIT Helpdesk guidance](https://help.rit.edu/sp/?id=kb_article_view&sysparm_article=KB0040935) for users who want more manual control over their connection than is provided by the SecureW2 utility that RIT's instructions guide people to.
 
+## General Steps
+
+This guide contains several methods, each for a different purpose. At the bottom of this page, there are links to specific instructions for each currently supported networking tools. However, as a general rule, these are the high-level steps. This may be useful for creating additional information for your preferred network manager, should it not currently be documented. 
+
+1. Connect to `RIT-WiFi` using traditional means. This allows you to download the certificates needed later in the process.
+2. Open your browser of choice, and go to [https://rit.edu/wifi](https://rit.edu/wifi). Once loaded, click on the `eduroam` options.
+3. Choose `User-defined`, and sign in with your RIT account. 
+4. Enter the name of your device, or some description thereof, then enter a passphrase. This will be referred to as your certificate passphrase later in this tutorial.
+5. Download the correct certificate for your setup, then download the RIT CA Certificate. 
+6. Close the browser, and configure your network manager with the following settings.
+    - SSID/Network Name: eduroam
+    - Key Management: WPA-EAP
+    - EAP method: TLS
+    - Anonymous Identity: anonymous@rit.edu
+    - Domain: radius.rit.edu
+    - Phase2/Inner Identity/"Identity": abc1234@rit.edu
+    - Phase2/Inner Password: [Your RIT Password]
+    - Certificate Password: created previously
+    - Location of the CACert
+    - Location of the personal certificate and/or key
+7. Optionally, test your network connection.
+
+## Network manager Options
+
+- [Network Manager](./eduroamConfigs/networkManager.md)
+- [nmcli/Network Manager CLI](./eduroamConfigs/nmcli.md)
+- [iwd](./eduroamConfigs/iwd.md)
+- [wpa_supplicant](./eduroamConfigs/wpa_supplicant.md)
+
 ## Requirements
 
 ### GUI Setup
@@ -169,7 +198,7 @@ This command tests the ability to talk to the [Quad9 DNS Service](https://www.qu
 ---
 The following configurations must use the listed file types. Use of alternative file types has not been tested, and is not recommended.
 
-### iwd Configuration
+<!-- ### iwd Configuration
 
 If you do not have a `.pem` file from RIT before starting this section, go back to the beginning of this page, and create a new certificate, downloading the `PEM` option instead.
 
@@ -207,11 +236,9 @@ Replace `abc1234@rit.edu` and `P@ssw0rd1` with your RIT email and password. Ensu
 ```
 # iwctl station wlan0 connect eduroam
 ```
-This tells `iwd` to connect to the `eduroam` WiFi network, using the network interface `wlan0`. 
+This tells `iwd` to connect to the `eduroam` WiFi network, using the network interface `wlan0`. This will prompt you for the password *to the `.pem` file you downloaded*. Enter that now.
 
-5. The above command will prompt you for the password *to the `.pem` file you downloaded*. Enter that now.
-
-6. (Optional) Run the following to ensure that your connection is working: 
+5. (Optional) Run the following to ensure that your connection is working: 
 ```
 ping 9.9.9.9
 ```
@@ -226,8 +253,9 @@ EAP server tried method 13 while client was configured for method 21
 EAP completed with eapFail
 4-Way handshake failed for ifindex 4, reason: 23
 ```
+-->
 
-### wpa_supplicant Configuration
+<!-- ### wpa_supplicant Configuration
 
 If you do not have a `.p12` file from RIT before starting this section, go back to the beginning of this page, and create a new certificate, downloading the `P12` option instead.
 
@@ -273,7 +301,7 @@ For debugging purposes, the `-B` flag shown above can be omitted, allowing you t
 
 
 Note that while this config file is persistent across reboots, as this guide stands, you will need to start `wpa_supplicant` and `dhcpcd` manually on each boot. For more information on starting `wpa_supplicant` at boot, and auto-starting `dhcpcd`, consult the [ArchWiki](https://wiki.archlinux.org/title/Wpa_supplicant#At_boot_(systemd)), or your distribution's wiki for non-`systemd` systems.
-
+-->
 ## Alternate - RIT-WiFi
 
 If you are unable to connect using certificates, you can follow the [ITS RESNet manual registration instructions](https://www.rit.edu/its/resnet/manual-registration).
