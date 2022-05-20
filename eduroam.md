@@ -13,14 +13,10 @@ This guide aims to provide Linux users at RIT with an alternate to the [official
 
 ## General Steps
 
-This guide contains several methods, each for a different purpose. At the bottom of this page, there are links to specific instructions for each currently supported networking tools. However, as a general rule, these are the high-level steps. This may be useful for creating additional information for your preferred network manager, should it not currently be documented. 
+This guide contains several methods, each for a different purpose. At the bottom of this page, there are links to specific instructions for each currently supported networking tools. However, as a general rule, these are the high-level steps. This may be useful for creating additional information for your preferred network manager, should it not currently be documented.
 
-1. Connect to `RIT-WiFi` using traditional means. This allows you to download the certificates needed later in the process.
-2. Open your browser of choice, and go to [https://rit.edu/wifi](https://rit.edu/wifi). Once loaded, click on the `eduroam` options.
-3. Choose `User-defined`, and sign in with your RIT account. 
-4. Enter the name of your device, or some description thereof, then enter a passphrase. This will be referred to as your certificate passphrase later in this tutorial.
-5. Download the correct certificate for your setup, then download the RIT CA Certificate. 
-6. Close the browser, and configure your network manager with the following settings.
+1. Generate a personal certificate, according to [this tutorial](./certificates).
+2. Configure your network manager with the following settings.
     - SSID/Network Name: eduroam
     - Key Management: WPA-EAP
     - EAP method: TLS
@@ -31,14 +27,13 @@ This guide contains several methods, each for a different purpose. At the bottom
     - Location of the CACert
     - Location of the personal certificate and/or key
     - Certificate Password: created previously
-7. Optionally, test your network connection.
 
 ## Network Management Options
 
-- [Network Manager](./eduroamConfigs/networkManager.md)
-- [nmcli/Network Manager CLI](./eduroamConfigs/nmcli.md)
-- [iwd](./eduroamConfigs/iwd.md)
-- [wpa_supplicant](./eduroamConfigs/wpa_supplicant.md)
+- [Network Manager](./eduroamConfigs/networkManager)
+- [nmcli/Network Manager CLI](./eduroamConfigs/nmcli)
+- [iwd](./eduroamConfigs/iwd)
+- [wpa_supplicant](./eduroamConfigs/wpa_supplicant)
 
 
 ## Alternate - RIT-WiFi
