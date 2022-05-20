@@ -40,7 +40,7 @@ This guide contains several methods, each for a different purpose. At the bottom
 - [iwd](./eduroamConfigs/iwd.md)
 - [wpa_supplicant](./eduroamConfigs/wpa_supplicant.md)
 
-## Requirements
+<!-- ## Requirements
 
 ### GUI Setup
 - NetworkManager and a desktop environment that uses it (KDE, GNOME, LXDE, Cinnamon, MATE)
@@ -91,8 +91,9 @@ Initial setup requires internet access to download certificates. This can be don
 8. If you are using the GUI setup process, copy the RIT certificate file to `/usr/local/share/ca-certificates/`. As this must be done as root, this will most likely require a terminal. A command like `sudo cp *.cer /usr/local/share/ca-certificates/` will copy all files ending in .cer in your current folder to this location.
 
 9. You now have everything you need to connect to the network.
+-->
 
-
+<!--
 ## General Network Information
 
 The process of connecting to the network may be different depending on the Linux distribution you use. In general, here is some information that may be asked during the connection process:
@@ -103,8 +104,8 @@ The process of connecting to the network may be different depending on the Linux
 - *CA certificate:* The RIT `.cer` certificate you downloaded earlier.
 - *User Certificate/private key:* The other file you downloaded (**not the .cer file**). Note that, depending on the file you download, the certificate and private key may or may not be separate.
 - *User Key Password:* The password you set for the above file earlier.
-
-## GUI Setup
+-->
+<!-- ## GUI Setup
 
 This section will work with both `.pem` and `.p12` certificates and keys.
 
@@ -119,14 +120,14 @@ This section will work with both `.pem` and `.p12` certificates and keys.
 ![](/assets/img/eduroam/configure-networkmanager.png)
 
 Your computer should now be connected to the `eduroam` network.
-
-## CLI Setup
+-->
+<!-- ## CLI Setup
 
 Note: Both the `iwd` and `wpa_supplicant` configurations were tested on an otherwise-blank Arch install ISO. `nmcli` configuration was tested on Tails. File location may differ across distributions. If directories don't exist, check your distribution's documentation for the correct location of the files.
 
 For all below commands, if the command is begins with a `#`, then it must either be run as root (not the account you log in with), or with `sudo` at the beginning of the command.
-
-### nmcli Configuration
+-->
+<!-- ### nmcli Configuration
 
 `nmcli` is the terminal interface for NetworkManager. This means that it can either use the `p12` or `pem` variant of your certificate and key. The instructions below are using the `p12` variant. If you wish to use the `pem` variant, replace all instances of the `p12` file with your `pem` file. This information is also useful for troubleshooting the GUI setup, should it work incorrectly.
 
@@ -194,9 +195,7 @@ This tells `nmcli` that you want to use the configuration `eduroamWiFi`, which w
 $ ping 9.9.9.9
 ```
 This command tests the ability to talk to the [Quad9 DNS Service](https://www.quad9.net/). If the command returns an error, then you are not connected to the `eduroam` network (or any other network, for that matter). 
-
----
-The following configurations must use the listed file types. Use of alternative file types has not been tested, and is not recommended.
+-->
 
 <!-- ### iwd Configuration
 

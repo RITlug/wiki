@@ -4,48 +4,64 @@ layout: default
 
 
 ---
-## wpa_supplicant Instructions
+## wpa_supplicant Tutorial
 
-This is the complete instruction list for configuring `wpa_supplicant`. These instructions use the `P12` certificate. 
+This is the complete instruction list for configuring `wpa_supplicant`. This was tested on a clean Arch install ISO. File location may differ across distributions. If directories don't exist, check your distribution's documentation for the correct location of the files. 
+
+## Requirements 
+The following is required to use this configuration:
+- `wpa_supplicant`, and a terminal emulator to run commands in
+- A modern web browser
+- A `P12` certificate (described below in steps 1-8)
+- Root/`sudo` priveleges
+- A text editor. Terminal emulators are easiest for this, but are not strictly necessary
+    - `nano`
+    - `micro`
+    - `nvim`/`vim`/`vi`
+    - `emacs`
+
+## Instructions
 
 All commands starting with `$` can be used as your standard user. All commands using `#` require to be run as root, generally by preceding the command with `sudo`. 
 
-1. Go to [*https://rit.edu/wifi*](https://rit.edu/wifi), then select `eduroam`. 
+1. Connect to the `RIT-WiFi` network.
+
+2. Go to [*https://rit.edu/wifi*](https://rit.edu/wifi), then select `eduroam`. 
 
 ![](/assets/img/eduroam/wifi-page.png)
 
-2. In the 'Select your device' dropdown, select the `user-defined` option. 
+3. In the 'Select your device' dropdown, select the `user-defined` option. 
 
 ![](/assets/img/eduroam/select-os.png)
 
-3. Click 'Sign in' and enter your RIT credentials when prompted. 
+4. Click 'Sign in' and enter your RIT credentials when prompted. 
 
 ![](/assets/img/eduroam/start-user-cert.png)
 
-4. Once you are logged in, you will be asked to create a certificate. Enter a name you would like to give this certificate in the 'User Description' input box, then, click the 'Create' button. 
+5. Once you are logged in, you will be asked to create a certificate. Enter a name you would like to give this certificate in the 'User Description' input box, then, click the 'Create' button. 
 
 ![](/assets/img/eduroam/create-user-cert.png)
 
-5. You will then be prompted to create a password to protect your private key. This will be needed to set up eduroam on a new device. If you are unsure, you can use [1Password's public generator](https://1password.com/password-generator/?) which has a "memorable password" mode. The password you choose must be at least six (but no more than 16) characters long and contain a letter, number, and symbol. 
+6. You will then be prompted to create a password to protect your private key. This will be needed to set up eduroam on a new device. If you are unsure, you can use [1Password's public generator](https://1password.com/password-generator/?) which has a "memorable password" mode. The password you choose must be at least six (but no more than 16) characters long and contain a letter, number, and symbol. 
 
 ![](/assets/img/eduroam/password.png)
 
-6. Choose a format to download your certificate in. Select P12 format and save the file somewhere you can get to it easily.
+7. Choose a format to download your certificate in. Select P12 format and save the file somewhere you can get to it easily.
 
 ![](/assets/img/eduroam/cert-download.png)
 
-7. Click the link on this page to save the RIT CA Cert. 
+8. Click the link on this page to save the RIT CA Cert. 
 
 ![](/assets/img/eduroam/root-ca.png)
 
-8. Run the following command to determine what network devices are available. This tutorial assumes the use of the network interface `wlan0`.
+9. Run the following command to determine what network devices are available. This tutorial assumes the use of the network interface `wlan0`.
 ```
 # wpa_cli interface
 ```
 
-9. Move both the RIT CA Cert and the encrypted `.p12` file into a common directory that you don't plan on interacting with much. For testing purposes, `/opt/` was used. Locations within `~` or `/home/$USER` may not work properly, due to improper permissions, although this is untested as of writing.
+10. Move both the RIT CA Cert and the encrypted `.p12` file into a common directory that you don't plan on interacting with much. For testing purposes, `/opt/` was used. Locations within `~` or `/home/$USER` may not work properly, due to improper permissions, although this is untested as of writing.
 
-10. Open your text editor of choice, create a file in `/etc/wpa_supplicant`, and fill in the file according to the block below. You can name the file whatever you wish, but for automation purposes its recommended to name the file `wpa_supplicant-[interface name].conf`. This makes it easier for `systemd` and `dhcpcd` to interface with `wpa_supplicant` once it's set up.
+11. Open your text editor of choice, create a file in `/etc/wpa_supplicant`, and fill in the file according to the block below. You can name the file whatever you wish, but for automation purposes its recommended to name the file `wpa_supplicant-[interface name].conf`. This makes it easier for `systemd` and `dhcpcd` to interface with `wpa_supplicant` once it's set up.
 ```
 ctrl_interface=/var/run/wpa_supplicant
 ctrl_interface_group=wheel
@@ -68,7 +84,7 @@ network={
 }
 ```
 
-11. You're all set! Run the following commands in a terminal to start `wpa_supplicant`, then start `dhcpcd`. After this, your network should be set up properly.
+12. You're all set! Run the following commands in a terminal to start `wpa_supplicant`, then start `dhcpcd`. After this, your network should be set up properly.
 ```
 # wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/[config file name]
 # dhcpcd wlan0
