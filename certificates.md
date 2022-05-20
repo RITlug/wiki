@@ -37,3 +37,7 @@ To connect to RIT's `eduroam` WiFi network.
 8. Click the link on this page to save the RIT CA Cert.
 
 ![](/assets/img/eduroam/root-ca.png)
+
+## Next Steps
+
+Once you have generated your certificate, go to [this tutorial](./eduroam) to configure your network manager.
