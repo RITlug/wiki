@@ -40,4 +40,4 @@ To connect to RIT's `eduroam` WiFi network.
 
 ## Next Steps
 
-Once you have generated your certificate, go to [this tutorial](./eduroam) to configure your network manager.
+Once you have generated your certificate, go to [this tutorial](./) to configure your network manager.
