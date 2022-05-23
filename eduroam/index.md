@@ -30,10 +30,10 @@ This guide contains several methods, each for a different purpose. At the bottom
 
 ## Network Management Options
 
-- [Network Manager](./eduroamConfigs/networkManager)
-- [nmcli/Network Manager CLI](./eduroamConfigs/nmcli)
-- [iwd](./eduroamConfigs/iwd)
-- [wpa_supplicant](./eduroamConfigs/wpa_supplicant)
+- [Network Manager](./eduroam/networkManager)
+- [nmcli/Network Manager CLI](./eduroam/nmcli)
+- [iwd](./eduroam/iwd)
+- [wpa_supplicant](./eduroam/wpa_supplicant)
 
 
 ## Alternate - RIT-WiFi
