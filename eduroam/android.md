@@ -10,7 +10,7 @@ This is the complete instruction list for configuring Android to connect to edur
 
 ## Instructions
 
-Generate a personal certificate according to [this tutorial](./certificates.md).
+Generate a personal certificate according to [this tutorial](./certificates).
 
 ### Installing the certificates
 
