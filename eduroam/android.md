@@ -1,10 +1,9 @@
 ---
-title: Connecting to the RIT eduroam network under Linux - Android
+title: Connecting an Android device to the RIT eduroam network 
 layout: default
 
 
 ---
-## Android Tutorial
 
 This is the complete instruction list for configuring Android to connect to eduroam. These instructions use the `P12` certificate.
 
