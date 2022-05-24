@@ -6,7 +6,7 @@ layout: default
 ---
 ## NetworkManager Tutorial
 
-This is the complete instruction list for configuring `wpa_supplicant`. These instructions use the `P12` certificate, although the `PEM` will also work properly.
+This is the complete instruction list for configuring NetworkManager. These instructions use the `P12` certificate, although the `PEM` will also work properly.
 
 ## Requirements
 Currently, the only required software required for this is a modern web browser, and a desktop environment compatible with NetworkManager. Desktop managers that default to using NetworkManager include KDE, GNOME, LXDE, Cinnamon, and MATE.
