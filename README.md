@@ -18,7 +18,8 @@ Software. This wiki has been modified from the
 
 ## Development usage
 
-use `bundle install` followed by `bundle exec jekyll serve` to serve the project locally for development.
+Use `bundle install` followed by `bundle exec jekyll serve` to serve the project locally for development.
+Or use the `./start_devel_env.sh` script if you have docker installed.
 
 ## Legal
 
