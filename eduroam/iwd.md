@@ -78,3 +78,7 @@ EAP server tried method 13 while client was configured for method 21
 EAP completed with eapFail
 4-Way handshake failed for ifindex 4, reason: 23
 ```
+
+
+## See Also
+- [iwd's official autotests](https://git.kernel.org/pub/scm/network/wireless/iwd.git/tree/autotests)

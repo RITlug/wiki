@@ -45,5 +45,4 @@ If you are unable to connect using certificates, you can follow the [ITS RESNet 
 
 - [Connecting a Raspberry Pi to UVA's Eduroam Wifi](https://scholarslab.lib.virginia.edu/blog/raspberry-pi-uva-eduroam/)
 - [Alternate Raspberry Pi information](https://s55ma.radioamater.si/2020/10/28/raspberry-pi-eap-tls-wi-fi-with-nmcli-network-manager/)
-- [wpa_supplicant's official documentation](https://w1.fi/wpa_supplicant)
-- [iwd's official autotests](https://git.kernel.org/pub/scm/network/wireless/iwd.git/tree/autotests)
+

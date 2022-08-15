@@ -69,3 +69,7 @@ Note that while this config file is persistent across reboots, as this guide sta
 
 ## Troubleshooting
 For debugging purposes, the `-B` flag shown above can be omitted, allowing you to see the complete output of the command. Note that this omitting this flag will make the current terminal unusable, so a second session or terminal will be required to run the `dhcpcd` command. Also note that closing the terminal containing the `wpa_supplicant` command will also end the connection to the Wi-Fi, so act with care.
+
+
+## See Also
+- [wpa_supplicant's official documentation](https://w1.fi/wpa_supplicant)
