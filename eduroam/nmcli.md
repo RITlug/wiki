@@ -79,7 +79,7 @@ method=auto
 
 7. Run the following command to activate the connection:
 ```
-# nmcli conection up <conenction name>
+# nmcli conection up <connection name>
 ```
 This tells `nmcli` that you want to bring up the network using the configuration that you created in the previous step.
 
