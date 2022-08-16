@@ -18,8 +18,13 @@ Software. This wiki has been modified from the
 
 ## Development usage
 
-Use `bundle install` followed by `bundle exec jekyll serve` to serve the project locally for development.
-Or use the `./start_devel_env.sh` script if you have docker installed.
+### Local Install
+1. Make sure you have ruby and rubygems installed per the [jekyll docs](https://jekyllrb.com/docs/installation/)
+2. install bundler with `gem install bundler` (you may also need to install jekyll this way, I'm not sure)
+3. Use `bundle install` followed by `bundle exec jekyll serve` to serve the project locally for development.
+
+### Docker install
+The `./start_devel_env.sh` script creates a docker environment with everything already set up for building and serving a local copy of the repository. After running, your local webserver will be visible at `localhost:4000` in your browser
 
 ## Legal
 
