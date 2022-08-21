@@ -44,7 +44,7 @@ If you are using a specific piece of client software on your linux machine, you 
 
 ### Alternate - RIT-WiFi
 
-If you are unable to connect using certificates, you can follow the [ITS RESNet manual registration instructions](https://www.rit.edu/its/resnet/manual-registration).
+If you are in RIT housing that is serviced by RESNet (mainly dorms, unknown if other housing has this option available) and are unable to connect using certificates, you can follow the [ITS RESNet manual registration instructions](https://www.rit.edu/its/resnet/manual-registration) to get connected.
 
 ## What is Eduroam?
 
