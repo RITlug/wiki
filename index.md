@@ -4,12 +4,7 @@ theme: default
 
 Welcome to the RIT linux wiki!
 
-If you are here for information on eduroam, check out out [Guide for connecting to eduroam in linux](./eduroam) or [Generating your eduroam certificate](./eduroam/certificates)
+If you are here for information on eduroam, you'll likely want the [main eduroam page](./eduroam). This page is a great starting point if you want to learn more about eduroam or connect a device.
 
-
-
-here are some other miscellaneous pages:
-
-- [Using linux at RIT for CS majors](./CS)
-- [Using linux at RIT for GDD majors](./GDD)
+There are also a few other pages you might find interesting:
 - [How to connect to the RIT VPN in linux](./RIT-VPN)
