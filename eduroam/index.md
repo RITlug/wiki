@@ -29,7 +29,6 @@ The next section of this page contains links to specific instructions for a vari
     - Anonymous Identity: anonymous@rit.edu
     - Domain: radius.rit.edu
     - Phase2/Inner Identity/"Identity": abc1234@rit.edu
-    - Phase2/Inner Password: [Your RIT Password]
     - Location of the CACert
     - Location of the personal certificate and/or key
     - Certificate Password: created previously
