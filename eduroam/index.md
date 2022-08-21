@@ -10,6 +10,8 @@ Starting after 2022 commencement RIT became part of a larger, multi-university '
 
 This changes some things about authentication with the network and can lead to some confusion, especially for anyone not running MacOS or Windows, or for those who like to tinker with the in-dept technical details of their systems.
 
+To learn more about what eduroam is and how it works, see the [What is Eduroam?](#what-is-eduroam) section of this page.
+
 ## Purpose of this Guide
 This guide, first and foremost, aims to provide Linux users at RIT with alternatives to the [official RIT ITS Helpdesk guidance](https://help.rit.edu/sp/?id=kb_article_view&sysparm_article=KB0040935) and SecureW2 client. These guides are intended for linux users who are comfortable managing their own system and want more control and ability to tinker with their setup.
 
@@ -45,8 +47,21 @@ If you are using a specific piece of client software on your linux machine, you 
 
 If you are unable to connect using certificates, you can follow the [ITS RESNet manual registration instructions](https://www.rit.edu/its/resnet/manual-registration).
 
-## See Also
+## What is Eduroam?
 
+Eduroam (https://http://eduroam.org/) is simply an authentication proxy on top of the existing RIT network that allows students from other universities to use the RIT network after securely authenticating with their home institution. It was started in Europe but has since expanded throughout the research community.
+
+Essentially all eduroam does when you're trying to connect to another institution's network (say Intitution B) is proxy your authentication request to the correct authentication server. This request essentially says "I'm <username>@rit.edu", eduroam's auth proxies say "I know where rit.edu's auth servers are" and forwards/proxies your login attempt to RIT's auth servers. RIT's auth servers then give an "approved" or "denied" response that determines whether you can access Intitution B's network.
+
+### An analogy
+You can think of this process as being similar to RIT's login portal. When you go to a non-RIT website such as Zoom or Gmail you're connecting to servers owned by a thid party. But when you tell that service "I'm from RIT" (by logging in with your RIT account) you get sent to the RIT Login page.
+
+After logging in through the RIT portal, you get sent back to the service you came from. The service gets some data that indicates whether the login was successful in order to let you in, and from that point you are communicating directly with the service again.
+
+Eduroam is essentially the same concept but for wifi. When trying to log in to Institution B's network with RIT credentials, your login request will get securely sent to RIT to confirm you are allowed to access the network, but once authenticated, you will be communicating directly with Institution B's network.
+
+## See Also
+- [What is eduroam](https://eduroam.org/what-is-eduroam/)
 - [Connecting a Raspberry Pi to UVA's Eduroam Wifi](https://scholarslab.lib.virginia.edu/blog/raspberry-pi-uva-eduroam/)
 - [Alternate Raspberry Pi information](https://s55ma.radioamater.si/2020/10/28/raspberry-pi-eap-tls-wi-fi-with-nmcli-network-manager/)
 
