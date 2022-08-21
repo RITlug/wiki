@@ -48,7 +48,7 @@ If you are unable to connect using certificates, you can follow the [ITS RESNet 
 
 ## What is Eduroam?
 
-Eduroam (https://http://eduroam.org/) is simply an authentication proxy on top of the existing RIT network that allows students from other universities to use the RIT network after securely authenticating with their home institution. It was started in Europe but has since expanded throughout the research community.
+Eduroam (https://eduroam.org/) is simply an authentication proxy on top of the existing RIT network that allows students from other universities to use the RIT network after securely authenticating with their home institution. It was started in Europe but has since expanded throughout the research community.
 
 Essentially all eduroam does when you're trying to connect to another institution's network (say Intitution B) is proxy your authentication request to the correct authentication server. This request essentially says "I'm abc1234@rit.edu", eduroam's auth proxies say "I know where rit.edu's auth servers are" and forwards/proxies your login attempt to RIT's auth servers. RIT's auth servers then give an "approved" or "denied" response that determines whether you can access Intitution B's network.
 
