@@ -71,6 +71,7 @@ This command tests the ability to talk to the [Quad9 DNS Service](https://www.qu
 For any devices having issues, see [this article on the ArchWiki](https://wiki.archlinux.org/title/Iwd#Verbose_TLS_debugging) to start the debugging process. Common problems include:
 
 - Entering an incorrect location for the certificates, or entering an invalid name for the certificates. This results in a `Not configured` on attempted connection.
+- If the above doesn't resolve the `Not configured` error, try running `modprobe pkcs8_key_parser` (as root/sudo). This kernel module is needed to actually load the certificate, which may not happen automatically on some distros (current suspicion is distros without systemd are most affected by this)
 - Entering `TTLS` instead of `TLS`. This results in a `journalctl` error shown below:
 ```
 EAP server tried method 13 while client was configured for method 21
