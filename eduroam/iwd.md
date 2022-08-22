@@ -55,11 +55,13 @@ AutoConnect=true
 ```
 Replace `abc1234@rit.edu` with your RIT email. Ensure that the name of the `pem` file matches the name written in `eduroam.8021x`. *Do not change the `EAP-Identity` line*.
 
-5. Run the following command as root:
+5. Run the following command as root (or with sudo):
 ```
 # iwctl station wlan0 connect eduroam
 ```
 This tells `iwd` to connect to the `eduroam` WiFi network, using the network interface `wlan0`. This will prompt you for the password *to the `.pem` file you downloaded*. Enter that now.
+
+   - If you don't want to be asked for the cert's password each time you connect, add the password in plain text under a new `EAP-TLS-ClientKeyPassphrase` entry in the config file from the previous steps. Depending on your threat model this may be a security risk since the password will be stored in plaintext.
 
 6. (Optional) Run the following to ensure that your connection is working:
 ```
