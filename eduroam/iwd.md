@@ -49,12 +49,11 @@ EAP-TLS-ClientKey=/var/lib/iwd/encryptedCertKey.pem
 EAP-TLS-ServerDomainMask=radius.rit.edu
 EAP-TLS-Phase2-Method=Tunneled-PAP
 EAP-TLS-Phase2-Identity=abc1234@rit.edu
-EAP-TLS-Phase2-Password=P@ssw0rd1
 
 [Settings]
 AutoConnect=true
 ```
-Replace `abc1234@rit.edu` and `P@ssw0rd1` with your RIT email and password. Ensure that the name of the `pem` file matches the name written in `eduroam.8021x`. *Do not change the `EAP-Identity` line*.
+Replace `abc1234@rit.edu` with your RIT email. Ensure that the name of the `pem` file matches the name written in `eduroam.8021x`. *Do not change the `EAP-Identity` line*.
 
 5. Run the following command as root:
 ```
