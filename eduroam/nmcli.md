@@ -28,8 +28,9 @@ All commands starting with `$` can be used as your standard user. All commands u
 
 2. Grab the name of the wireless network interface  that you want to use for this connection. You will need this throughout this setup process. You can list all network interfaces by running the command:
 ```
-$ nmcli
+$ nmcli device show
 ```
+>Check the one whose `GENERAL.TYPE` is `wifi`
 3. Open a terminal and use nmcli to create a new wifi connection on your wireless network interface that connects to the `eduroam` network:
 ```
 $ nmcli connection add type wifi ifname <your interface> con-name eduroamWiFi ssid eduroam
