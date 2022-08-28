@@ -32,18 +32,18 @@ $ nmcli
 ```
 3. Open a terminal and use nmcli to create a new wifi connection on your wireless network interface that connects to the `eduroam` network:
 ```
-$ nmcli connection add type wifi ifname <your interface> con-name <connection name> ssid eduroam
+$ nmcli connection add type wifi ifname <your interface> con-name eduroamWiFi ssid eduroam
 ```
 4. then navigate to the NetworkManager/`nmcli` configuration directory:
 ```
 # cd /etc/NetworkManager/system-connections/
 ```
-5. Open the `eduroam.nmconnection` file in the editor of your choice *as root*. If you do not open it as root, the changes will not be saved.
+5. Open the `eduroamWiFi.nmconnection` file in the editor of your choice *as root*. If you do not open it as root, the changes will not be saved.
 
 6. Edit the file so that it contains the following lines. The file will contain most of these lines already. The `uuid` field will already be filled in, do not edit this field.
 ```
 [connection]
-id=<connection name>
+id=eduroamWiFi
 uuid=<generated UUID, don't edit this>
 type=wifi
 interface-name=<your interface>
@@ -79,7 +79,7 @@ method=auto
 
 7. Run the following command to activate the connection:
 ```
-# nmcli conection up <connection name>
+# nmcli conection up eduroamWiFi
 ```
 This tells `nmcli` that you want to bring up the network using the configuration that you created in the previous step.
 
