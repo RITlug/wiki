@@ -42,7 +42,7 @@ $ nmcli connection add type wifi ifname <your interface> con-name eduroamWiFi ss
 >Plain sudo will not work; you must be the root user. This can be done with: `sudo su`
 5. Open the `eduroamWiFi.nmconnection` file in the editor of your choice *as root*. If you do not open it as root, the changes will not be saved.
 
-6. Edit the file so that it contains the following lines. The file will contain most of these lines already. The `uuid` field will already be filled in, do not edit this field.
+6. Edit the file so that it contains the following lines. The file will contain most of these lines already. The `uuid` field will already be filled in, **do not edit this field**.
 ```
 [connection]
 id=eduroamWiFi
