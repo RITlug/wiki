@@ -61,12 +61,12 @@ auth-alg=open
 key-mgmt=wpa-eap
 
 [802-1x]
-ca-cert=location/of/ritCACert
-client-cert=location/of/p12PrivateKey
+ca-cert=location/of/ritCACert.cer
+client-cert=location/of/p12PrivateKey.p12
 domain-suffix-match=radius.rit.edu
 eap=tls;
 identity=abc1234@rit.edu
-private-key=location/of/p12PrivateKey
+private-key=location/of/p12PrivateKey.p12
 private-key-password=<your private key password>
 
 [ipv4]
