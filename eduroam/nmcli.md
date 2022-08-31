@@ -37,9 +37,9 @@ $ nmcli connection add type wifi ifname <your interface> con-name eduroamWiFi ss
 ```
 4. Open the `eduroamWiFi.nmconnection` file in the editor of your choice *as root*. If you do not open it as root, the changes will not be saved.
 ```
-# vim /etc/NetworkManager/system-connections/eduroamWiFi.nmconnection
+# nano /etc/NetworkManager/system-connections/eduroamWiFi.nmconnection
 ```
->Substitute `vim` for editor of choice
+>Substitute `nano` for editor of choice
 5. Edit the file so that it contains the following lines. The file will contain most of these lines already. The `uuid` field will already be filled in, **do not edit this field**.
 ```
 [connection]
