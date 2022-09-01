@@ -28,22 +28,22 @@ All commands starting with `$` can be used as your standard user. All commands u
 
 2. Grab the name of the wireless network interface  that you want to use for this connection. You will need this throughout this setup process. You can list all network interfaces by running the command:
 ```
-$ nmcli
+$ nmcli device show
 ```
+>Check the one whose `GENERAL.TYPE` is `wifi`. Most commonly, this is `wlan0` or `wlp5s0`.
 3. Open a terminal and use nmcli to create a new wifi connection on your wireless network interface that connects to the `eduroam` network:
 ```
-$ nmcli connection add type wifi ifname <your interface> con-name <connection name> ssid eduroam
+$ nmcli connection add type wifi ifname <your interface> con-name eduroamWiFi ssid eduroam
 ```
-4. then navigate to the NetworkManager/`nmcli` configuration directory:
+4. Open the `eduroamWiFi.nmconnection` file in the editor of your choice *as root*. If you do not open it as root, the changes will not be saved.
 ```
-# cd /etc/NetworkManager/system-connections/
+# nano /etc/NetworkManager/system-connections/eduroamWiFi.nmconnection
 ```
-5. Open the `eduroam.nmconnection` file in the editor of your choice *as root*. If you do not open it as root, the changes will not be saved.
-
-6. Edit the file so that it contains the following lines. The file will contain most of these lines already. The `uuid` field will already be filled in, do not edit this field.
+>Substitute `nano` for editor of choice
+5. Edit the file so that it contains the following lines. The file will contain most of these lines already. The `uuid` field will already be filled in, **do not edit this field**.
 ```
 [connection]
-id=<connection name>
+id=eduroamWiFi
 uuid=<generated UUID, don't edit this>
 type=wifi
 interface-name=<your interface>
@@ -59,12 +59,12 @@ auth-alg=open
 key-mgmt=wpa-eap
 
 [802-1x]
-ca-cert=location/of/ritCACert
-client-cert=location/of/p12PrivateKey
+ca-cert=location/of/ritCACert.cer
+client-cert=location/of/p12PrivateKey.p12
 domain-suffix-match=radius.rit.edu
 eap=tls;
 identity=abc1234@rit.edu
-private-key=location/of/p12PrivateKey
+private-key=location/of/p12PrivateKey.p12
 private-key-password=<your private key password>
 
 [ipv4]
@@ -79,7 +79,7 @@ method=auto
 
 7. Run the following command to activate the connection:
 ```
-# nmcli conection up <connection name>
+# nmcli conection up eduroamWiFi
 ```
 This tells `nmcli` that you want to bring up the network using the configuration that you created in the previous step.
 
