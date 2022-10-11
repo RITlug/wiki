@@ -12,5 +12,10 @@ githubURL: https://github.com/RITlug/wiki
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 
+exclude:
+  - start_devel_env.sh
+  - README.md
+  - Gemfile
+  - Gemfile.lock
 
 markdown: CommonMarkGhPages
