@@ -7,10 +7,9 @@ layout: default
 For the last two semesters, at least, the button that is supposed to download your schedule from RIT's [TigerCenter](https://tigercenter.rit.edu) has not been working.
 
 ## What is TigerCenter
-TigerCenter is a web-based tool developed by the now-dissolved [Student IT Office](https://web.archive.org/web/20220907234336/https://www.rit.edu/its/sito/) (SITO). As far as I can tell, the goal of TigerCenter appears to be to provide students with a better, more modern, and faster interface for interacting with data from SIS. 
-<!-- For context, this is what the SIS UI looked like until Spring 2020:
+TigerCenter is a web-based tool developed by the now-dissolved [Student IT Office](https://web.archive.org/web/20220907234336/https://www.rit.edu/its/sito/) (SITO). As far as I can tell, the goal of TigerCenter appears to be to provide students with a better, more modern, and faster interface for interacting with data from SIS. For context, this is what the SIS UI looked like until Spring 2020:
 
-![]() -->
+![A screenshot of the old RIT PeopleSoft SIS interface](./assers/img/../../assets/img/tc-calendars/peoplesoft-sis.png)
 
 I personally use TigerCenter for its superior class search because it helps me find out what general classes I want to take (i.e. CSCI-XXX) so I can then plug those course ID's into [schedulemaker](https://schedule.csh.rit.edu/) to find the sections (i.e. CSCI-XXX-YY) that form a schedule that I like. When I was a first year (2019-ish), people were still able to remember a time when they were able to register for classes directly through SIS. 
 
