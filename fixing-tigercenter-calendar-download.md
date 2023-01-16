@@ -45,19 +45,19 @@ Bad news: The download button does nothing. Opening inspect element reveals a "T
 Here's the workaround I found to temporarily fix the issue (performed in Firefox, things may look slightly different in other browsers):
 
 1. Click the download button to download your calender. Notice that nothing happens.
-2. Jump to the code where the error is present by clicking on the blue text that says "homepage.component.ts:1218" next to the top line of the error
+2. Open inspect element (usually in the right click menu or `Ctrl-Shift-I`). In the console tab there will probably be an errorJump to the code where the error is present by clicking on the blue text that says "homepage.component.ts:1218" next to the top line of the error
 
 ![Clicking on "homepage.component.ts:1218" in inspect element](./assets/img/tc-calendars/jump-to-line.png)
 
-3. Once you jump to the line where of the error, click on the line number to mark it as a "breakpoint"
+3. This will take you to the line of code that had the error. Click on the line number in this code window to mark this line as a "breakpoint"
 
 ![Marking the line as a breakpoint by clicking the line number](./assets/img/tc-calendars/set-breakpoint.png)
 
-4. Try clicking on the download button again you should now see a popup saying "paused on breakpoint". You have stopped the page from running just before the error.
+4. Try clicking on the download calendar button again you should now see a popup saying "paused on breakpoint". You have stopped the page from running just before the error.
 
 ![The popup that says "paused on breakpoint"](./assets/img/tc-calendars/paused-on-breakpoint.png)
 
-5. Go to the "console" tab. Type `this.importantDates` into the console. It will probably say `undefined`. This shouldn't be happening. To fix it, type `this.importantDates = []` it should look like this:
+5. Go to the "console" tab. Type `this.importantDates` into the console. It will probably say `undefined`. This shouldn't be happening. To temporarily fix it until the page is reloaded, type `this.importantDates = []` it should look like this:
 
 ![using the console to temporarily fix the error](./assets/img/tc-calendars/set-value.png)
 
