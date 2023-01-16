@@ -60,11 +60,11 @@ Here's the workaround I found to temporarily fix the issue (performed in Firefox
 
 ![The popup that says "paused on breakpoint"](./assets/img/tc-calendars/paused-on-breakpoint.png)
 
-5. Go to the "console" tab. Type `this.importantDates` into the console. It will probably say `undefined`. This shouldn't be happening. To temporarily fix it until the page is reloaded, type `this.importantDates = []` it should look like this:
+5. Go to the "console" tab. Type `this.importantDates` into the console and press enter. It will probably say `undefined`. This shouldn't be happening. To temporarily fix it until the page is reloaded, type `this.importantDates = []` and press enter. It should look like this:
 
 ![using the console to temporarily fix the error](./assets/img/tc-calendars/set-value.png)
 
-6. Click the "play" button in the breakpoint popup from step 3. The page will now continue running and should trigger you your browsers configured downloader for your calendar file.
+6. Click the "play" button in the breakpoint popup from step 3. The page will now continue running and should activate your browsers configured downloader and download your calendar file.
 
 These steps will need to be repeated if you refresh the page.
 
