@@ -45,6 +45,9 @@ Bad news: The download button does nothing. Opening inspect element reveals a "T
 Here's the workaround I found to temporarily fix the issue (performed in Firefox, things may look slightly different in other browsers):
 
 1. Click the download button to download your calender. Notice that nothing happens.
+
+![The download calendar button in TigerCenter](./assets/img/tc-calendars/tc-download.png)
+
 2. Open inspect element (usually in the right click menu or `Ctrl-Shift-I`). In the console tab there will probably be an errorJump to the code where the error is present by clicking on the blue text that says "homepage.component.ts:1218" next to the top line of the error
 
 ![Clicking on "homepage.component.ts:1218" in inspect element](./assets/img/tc-calendars/jump-to-line.png)
