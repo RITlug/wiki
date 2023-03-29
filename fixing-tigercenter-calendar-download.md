@@ -4,6 +4,12 @@ layout: default
 
 
 ---
+
+> Update 3/27/2023: ITS has fixed the issue with TigerCenter described in this post and this workaround is no longer necessary. Future issues with TigerCenter can be reported by filing a [Report an issue with TigerCenter ticket](https://help.rit.edu/sp?id=sc_cat_item&sys_id=9b613be5dbf24c50881c89584b961986) in the RIT helpdesk (help.rit.edu) system.
+
+
+
+
 For the last two semesters, at least, the button that is supposed to download your schedule from RIT's [TigerCenter](https://tigercenter.rit.edu) has not been working.
 
 ## What is TigerCenter
