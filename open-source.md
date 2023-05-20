@@ -30,8 +30,6 @@ I've been generally categorizing open source at RIT into a few major categories:
   - [Society of Software Engineers](https://github.com/rit-sse)
   - [BrickHack/CodeRIT](https://github.com/codeRIT)
   - [Game Development Club](https://github.com/RITGameDev)
-  - Baja SAE
-  - Formula SAE
 - 
 
 
