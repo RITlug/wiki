@@ -5,7 +5,7 @@ layout: default
 
 ---
 
-> Update 3/27/2023: ITS has fixed the issue with TigerCenter described in this post and this workaround is no longer necessary. Future issues with TigerCenter can be reported by filing a [Report an issue with TigerCenter ticket](https://help.rit.edu/sp?id=sc_cat_item&sys_id=9b613be5dbf24c50881c89584b961986) in the RIT helpdesk (help.rit.edu) system.
+> Update 3/27/2023: ITS has fixed the issue with TigerCenter described in this post and this workaround is no longer necessary. Future issues with TigerCenter can be reported by filing a [Report an issue with TigerCenter ticket](https://help.rit.edu/sp?id=sc_cat_item&sys_id=9b613be5dbf24c50881c89584b961986) in the RIT helpdesk (help.rit.edu) system. There is also a [Request an improvement](https://help.rit.edu/sp?id=sc_cat_item&sys_id=36a3646ddbb60c50881c89584b9619f5) form. If these links do not work, try logging into help.rit.edu first, and then copy-pasting these links into the URL bar.
 
 
 
