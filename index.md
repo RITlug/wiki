@@ -10,3 +10,4 @@ There are also a few other pages you might find interesting:
 - [Fixing the TigerCenter calendar download](./fixing-tigercenter-calendar-download)
 - [Finding Open Source Software at RIT](./open-source)
 - [How to connect to the RIT VPN in linux](./RIT-VPN)
+- [Major-specific guides](./majors)
