@@ -47,15 +47,12 @@ id=eduroamWiFi
 uuid=<generated UUID, don't edit this>
 type=wifi
 interface-name=<your interface>
-permissions=
 
 [wifi]
-mac-address-blacklist=
 mode=infrastructure
 ssid=eduroam
 
 [wifi-security]
-auth-alg=open
 key-mgmt=wpa-eap
 
 [802-1x]
