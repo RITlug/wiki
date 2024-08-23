@@ -11,3 +11,4 @@ There are also a few other pages you might find interesting:
 - [Finding Open Source Software at RIT](./open-source)
 - [How to connect to the RIT VPN in linux](./RIT-VPN)
 - [Major-specific guides](./majors)
+- [How to Subscribe to a calendar feed of your MyCourses Assignments](./mycourses-assignment-calendar-feed)
