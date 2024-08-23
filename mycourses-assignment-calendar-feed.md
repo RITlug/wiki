@@ -5,6 +5,9 @@ layout: default
 
 
 ## Overview
+
+*Disclosure: This wiki article was created in large part by ChatGPT. The final article content has been edited by a human and reviewed for accuracy*
+
 MyCourses, RIT’s version of the D2L Brightspace Learning Management System (LMS), allows students to manage their coursework, assignments, and class schedules. One useful feature is the ability to subscribe to an ICS calendar feed, which syncs your class assignments with your preferred calendar application (e.g., Google Calendar, Outlook). This guide will walk you through the steps to subscribe to your class assignments calendar in MyCourses.
 
 ## Steps to Subscribe
