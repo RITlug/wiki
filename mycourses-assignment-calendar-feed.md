@@ -1,10 +1,8 @@
 ---
 title: Subscribing to an ICS Calendar Feed of Class Assignments in MyCourses
 layout: default
-
-
 ---
-### Subscribing to an ICS Calendar Feed of Class Assignments in MyCourses (D2L Brightspace)
+
 
 ## Overview
 MyCourses, RIT’s version of the D2L Brightspace Learning Management System (LMS), allows students to manage their coursework, assignments, and class schedules. One useful feature is the ability to subscribe to an ICS calendar feed, which syncs your class assignments with your preferred calendar application (e.g., Google Calendar, Outlook). This guide will walk you through the steps to subscribe to your class assignments calendar in MyCourses.
@@ -19,16 +17,28 @@ MyCourses, RIT’s version of the D2L Brightspace Learning Management System (LM
    - Once logged in, look for the **Calendar** widget on your MyCourses homepage. This may also be accessible from the navigation bar, usually labeled as **Calendar**.
    - Click on the **Calendar** link to open the calendar interface.
 
-### 3. Locate the ICS Feed:
-   - In the calendar view, find the **Settings** or **Options** menu. This may appear as a gear icon or be located under a dropdown menu labeled **Settings** or **Manage Subscriptions**.
-   - Look for an option that says **Subscribe** or **Export** calendar. You should see an option to get the ICS calendar feed URL.
-   - Click on the option to reveal the ICS feed URL.
+![Clicking the Calendar link opens the calendar page](./assets/img/mycourses-calendars/calendar-link.png)
 
-### 4. Copy the ICS Feed URL:
-   - A URL will be displayed, usually starting with `webcal://` or `https://`.
+### 3. Ensure the feed is enabled:
+   - In the calendar view, find the **Settings** or **Options** menu. This may appear as a gear icon or be located under a dropdown menu labeled **Settings** or **Manage Subscriptions**.
+
+![The buttons for settings and subscribe](./assets/img/mycourses-calendars/menu-buttons.png)
+
+   - Ensure that calendar feeds are enabled. This may appear under a heading labeled **Calendar Feeds**
+
+![The setting to ensure the feeds are enabled](./assets/img/mycourses-calendars/enable-feeds-option.png)
+
+### 4. Locate the ICS Feed:
+   - Look for an option that says **Subscribe** or **Export** calendar. You may need to back out of the settings screen in order to find it. You should see an option to get the ICS calendar feed URL.
+
+### 5. Copy the ICS Feed URL:
+   - A URL will be displayed, usually starting with `webcal://` or `https://`. THis is also where you can customize which classes you subscribe to.
    - Copy this URL to your clipboard.
 
-### 5. Add the Calendar to Your Preferred Application:
+![The screen with the feed URL](./assets/img/mycourses-calendars/subscribe-menu.png)
+
+
+### 6. Add the Calendar to Your Preferred Application:
    - **Google Calendar:**
      1. Open Google Calendar in your web browser.
      2. In the left-hand panel, find **Other calendars** and click the **+** icon next to it.
@@ -51,8 +61,8 @@ MyCourses, RIT’s version of the D2L Brightspace Learning Management System (LM
      4. Click **Subscribe** and customize the settings as needed.
      5. Click **OK** to add the calendar.
 
-### 6. Sync and View Your Assignments:
-   - The calendar will now sync with your application. You will be able to see all your class assignments and events from MyCourses directly in your personal calendar.
+### 7. Sync and View Your Assignments:
+   - The calendar will now sync with your application. You will be able to see your class assignments and events from MyCourses directly in your personal calendar.
 
 ## Tips
 - **Auto-Refresh:** Some calendar applications automatically refresh ICS feeds periodically, but you can often adjust this in the calendar settings to ensure your assignments are always up-to-date.
