@@ -21,6 +21,8 @@ if [ ! -d ./_site ]; then
     mkdir ./_site
 fi
 
+chmod a+w Gemfile.lock
+
 # Serve the site via Docker and update site when files changed in repo
 ${DOCKER_BINARY} run --rm \
     -p 4000:4000 \
