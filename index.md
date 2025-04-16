@@ -12,3 +12,4 @@ There are also a few other pages you might find interesting:
 - [How to connect to the RIT VPN in linux](./RIT-VPN)
 - [Major-specific guides](./majors)
 - [How to Subscribe to a calendar feed of your MyCourses Assignments](./mycourses-assignment-calendar-feed)
+- [How to connect your RIT email to Thunderbird](./rit-email-config)
