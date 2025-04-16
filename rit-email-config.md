@@ -21,7 +21,7 @@ Some Linux distros may come with it already installed, like Linux Mint.
 - Open Thunderbird, and in the top right corner (by default), click the Thunderbird Menu button.
 Then, click "add account", and then "email".
 - Enter in your name, RIT email, and the email password.
-You can use either your @rit.edu, or your @g.rit.edu email here, as this just changes what address what address the mail recpient sees, but for the manual configuration, only your @g.rit.edu email will work.
+You can use either your @rit.edu, or your @g.rit.edu email here, as this just changes what address the mail recpient sees, but for the manual configuration settings, only your @g.rit.edu email will work.
 - The password doesn't matter and it doesn't need to be the same password for your RIT account (as long as it's secure it should be fine).
 - After entering in your name, email, and password, click the "configure manually" button, There you will be prompted to enter in more information.
 
