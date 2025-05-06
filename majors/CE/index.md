@@ -5,6 +5,10 @@ layout: default
 
 # Useful Software
 
+## Guide to install Vivado on Linux
+* [Vivado](./Vivado/Vivado.md)
+
+
 ## EveryCircuit
 
 EveryCircuit is an application for Android, iOS, and the web that allows you to build and simulate circuits.  While it is not free, you are able to try it and build simple circuits for free.  It can be helpful for figuring out hard circuits homework problems, or trying to create your own circuits for projects.
