@@ -33,7 +33,7 @@ The next section of this page contains links to specific instructions for a vari
     - Location of the personal certificate and/or key
     - Certificate Password: created previously
 
-> [!WARNING]
+> **⚠️ Warning**
 > On NixOS 26.06 and later, the wpa_supplicant service was hardened such that it can only read certificates from `/etc/wpa_supplicant` and owned by the `wpa_supplicant` user. If you are using wpa_supplicant directly, or using NetworkManager with the wpa_supplicant backend, make sure this is done, otherwise eduroam will not connect.
 
 ## Network Management Options

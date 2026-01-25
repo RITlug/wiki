@@ -33,6 +33,9 @@ All commands starting with `$` can be used as your standard user. All commands u
 
 3. Move both the RIT CA Cert and the encrypted `.p12` file into a common directory that you don't plan on interacting with much. For testing purposes, `/opt/` was used. Locations within `~` or `/home/$USER` may not work properly, due to improper permissions, although this is untested as of writing.
 
+> **⚠️ Warning**
+> On NixOS 26.06 and later, the wpa_supplicant service was hardened such that it can only read certificates from `/etc/wpa_supplicant` and owned by the `wpa_supplicant` user. Make sure this is done, otherwise eduroam will not connect.
+
 4. Open your text editor of choice, create a file in `/etc/wpa_supplicant`, and fill in the file according to the block below. You can name the file whatever you wish, but for automation purposes its recommended to name the file `wpa_supplicant-[interface name].conf`. This makes it easier for `systemd` and `dhcpcd` to interface with `wpa_supplicant` once it's set up.
 ```
 ctrl_interface=/var/run/wpa_supplicant
@@ -55,9 +58,6 @@ network={
     private_key_passwd="P@ssw0rd1"
 }
 ```
-
-> [!WARNING]
-> On NixOS 26.06 and later, the wpa_supplicant service was hardened such that it can only read certificates from `/etc/wpa_supplicant` and owned by the `wpa_supplicant` user. Make sure this is done, otherwise eduroam will not connect.
 
 5. You're all set! Run the following commands in a terminal to start `wpa_supplicant`, then start `dhcpcd`. After this, your network should be set up properly.
 ```
