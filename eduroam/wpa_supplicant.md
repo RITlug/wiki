@@ -56,6 +56,9 @@ network={
 }
 ```
 
+> [!WARNING]
+> On NixOS 26.06 and later, the wpa_supplicant service was hardened such that it can only read certificates from `/etc/wpa_supplicant` and owned by the `wpa_supplicant` user. Make sure this is done, otherwise eduroam will not connect.
+
 5. You're all set! Run the following commands in a terminal to start `wpa_supplicant`, then start `dhcpcd`. After this, your network should be set up properly.
 ```
 # wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/[config file name]

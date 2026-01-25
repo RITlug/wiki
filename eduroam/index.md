@@ -6,7 +6,7 @@ layout: default
 ---
 ## An Overview
 
-Starting after 2022 commencement RIT became part of a larger, multi-university 'eduroam' system of campus networks. 
+Starting after 2022 commencement RIT became part of a larger, multi-university 'eduroam' system of campus networks.
 
 This changes some things about authentication with the network and can lead to some confusion, especially for anyone not running MacOS or Windows, or for those who like to tinker with the in-dept technical details of their systems.
 
@@ -21,7 +21,7 @@ These guides are not official and ITS most likely won't provide support for the 
 
 The next section of this page contains links to specific instructions for a variety of different networking clients. Most of these guides follow very similar high-level steps. This outline may be useful for anyone looking to understand the general process or create new guides for other clients.
 
-1. [Generate a personal certificate](./certificates) (and a password to secure it) 
+1. [Generate a personal certificate](./certificates) (and a password to secure it)
 2. Configure your network manager with the following settings.
     - SSID/Network Name: eduroam
     - Key Management: WPA-EAP
@@ -33,8 +33,11 @@ The next section of this page contains links to specific instructions for a vari
     - Location of the personal certificate and/or key
     - Certificate Password: created previously
 
+> [!WARNING]
+> On NixOS 26.06 and later, the wpa_supplicant service was hardened such that it can only read certificates from `/etc/wpa_supplicant` and owned by the `wpa_supplicant` user. If you are using wpa_supplicant directly, or using NetworkManager with the wpa_supplicant backend, make sure this is done, otherwise eduroam will not connect.
+
 ## Network Management Options
-If you are using a specific piece of client software on your linux machine, you may find one of these specific guides to be more useful. 
+If you are using a specific piece of client software on your linux machine, you may find one of these specific guides to be more useful.
 
 - [Network Manager](./networkManager)
 - [nmcli/Network Manager CLI](./nmcli)
